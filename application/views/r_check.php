@@ -26,9 +26,8 @@
                                         <div class='row'>
                                             <div class='col-md-offset-3 col-md-9'>
                                                 <button type="submit" name="kirim" class="btn btn-info"><i class='fa fa-check'></i>Check Data</button>
-                                                <a href="<?php echo site_url('reg_kelengkapan') ?>" class="btn btn-default"><i class='fa fa-share'></i>Cancel</a>
-
-
+                                                <a href="<?php echo site_url() ?>" class="btn btn-default"><i class='fa fa-share'></i>Cancel</a>
+ 
                                             </div>
                                         </div>
                                     </div>

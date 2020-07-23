@@ -114,6 +114,13 @@
                             <span>Form Inputan</span>
                           </a>
                         </li>
+
+                        <li>
+                          <a href="<?php echo site_url('reg_kelengkapan');?>">
+                           <i class="material-icons col-light-blue">description</i>
+                            <span>Register User</span>
+                          </a>
+                        </li>
                     <?php } ?>
 
                     <?php if($this->session->userdata('id_role') == '0') { ?>
