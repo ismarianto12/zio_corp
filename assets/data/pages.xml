@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages version="4.0.0" preload="false" ab="2a863dc6fef">
+  <page id="1" shadow="true" source="content/pages/page1.jpg" medium="content/medium/page1.jpg" thumb="content/thumbs/page1.jpg"/>
+  <page id="2" shadow="true" source="content/pages/page2.jpg" medium="content/medium/page2.jpg" thumb="content/thumbs/page2.jpg"/>
+  <page id="3" shadow="true" source="content/pages/page3.jpg" medium="content/medium/page3.jpg" thumb="content/thumbs/page3.jpg"/>
+  <page id="4" shadow="true" source="content/pages/page4.jpg" medium="content/medium/page4.jpg" thumb="content/thumbs/page4.jpg"/>
+  <page id="5" shadow="true" source="content/pages/page5.jpg" medium="content/medium/page5.jpg" thumb="content/thumbs/page5.jpg"/>
+  <page id="6" shadow="true" source="content/pages/page6.jpg" medium="content/medium/page6.jpg" thumb="content/thumbs/page6.jpg"/>
+</pages>
