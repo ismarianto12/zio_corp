@@ -41,59 +41,81 @@ class Reg_kelengkapan extends CI_Controller
 
     public function detail($id)
     {
-        $row = $this->Reg_kelengkapan_model->get_by_id($id);
-        if ($row) {
-            $data = array(
-                'id' => $row->id,
-                'no_registrasi' => $row->no_registrasi,
-                'form_pendaftar' => $row->form_pendaftar,
-                'ktp' => $row->ktp,
-                'npwp' => $row->npwp,
-                'pas_foto' => $row->pas_foto,
-                'data_orang_tua' => $row->data_orang_tua,
-                'data_ujian' => $row->data_ujian,
-                'data_ijazah' => $row->data_ijazah,
-                'data_nilai' => $row->data_nilai,
-                'data_sertifikat' => $row->data_sertifikat,
-                'create_at' => $row->create_at,
-                'upatated_at' => $row->upatated_at,
-                'created_by' => $row->created_by,
 
-                'page_title' => 'Detail :  REG_KELENGKAPAN',
-            );
-            $this->template->load('template', 'reg_kelengkapan/reg_kelengkapan_read', $data);
+        $id_user         = $this->session->id_user;
+        $login           = $this->session->login;
+        $x['rs_user']    = $this->m_user->get($id_user);
+        $x['page_title'] = 'Data : Data list kelengkapan.';
+        if ($id_user != '' || $login != '') {
+            $x['page_title'] = 'Data : Reg kelengkapan';
+
+            $row = $this->Reg_kelengkapan_model->get_by_id($id);
+            if ($row) {
+                $data = array(
+                    'id' => $row->id,
+                    'page_title' => 'Detail data',
+                    'no_registrasi' => $row->no_registrasi,
+                    'form_pendaftar' => $row->form_pendaftar,
+                    'ktp' => $row->ktp,
+                    'npwp' => $row->npwp,
+                    'pas_foto' => $row->pas_foto,
+                    'data_orang_tua' => $row->data_orang_tua,
+                    'data_ujian' => $row->data_ujian,
+                    'data_ijazah' => $row->data_ijazah,
+                    'data_nilai' => $row->data_nilai,
+                    'data_sertifikat' => $row->data_sertifikat,
+                    'create_at' => $row->create_at,
+                    'upatated_at' => $row->upatated_at,
+                    'created_by' => $row->created_by,
+
+                    'page_title' => 'Detail :  REG_KELENGKAPAN',
+                );
+                $this->template->load('template', 'reg_kelengkapan/reg_kelengkapan_read', array_merge($x, $data));
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
+                redirect(site_url('reg_kelengkapan'));
+            }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
-            redirect(site_url('reg_kelengkapan'));
+            show_404();
         }
     }
 
     public function tambah()
     {
-        error_reporting(0);
-        $data = array(
-            'rs_user' => '',
-            'page_title' => 'Tambah Reg kelengkapan',
-            'button' => 'Create',
-            'action' => site_url('reg_kelengkapan/tambah_data'),
-            'id' => set_value('id'),
-            'no_registrasi' => set_value('no_registrasi'),
-            'form_pendaftar' => set_value('form_pendaftar'),
-            'ktp' => set_value('ktp'),
-            'npwp' => set_value('npwp'),
-            'pas_foto' => set_value('pas_foto'),
-            'data_orang_tua' => set_value('data_orang_tua'),
-            'data_ujian' => set_value('data_ujian'),
-            'data_ijazah' => set_value('data_ijazah'),
-            'data_nilai' => set_value('data_nilai'),
-            'data_sertifikat' => set_value('data_sertifikat'),
-            'create_at' => set_value('create_at'),
-            'upatated_at' => set_value('upatated_at'),
-            'created_by' => set_value('created_by'),
-        );
-        $this->template->load('template', 'reg_kelengkapan/reg_kelengkapan_form', $data);
-    }
+        // error_reporting(0);
 
+        $id_user         = $this->session->id_user;
+        $login           = $this->session->login;
+        $x['rs_user']    = $this->m_user->get($id_user);
+        $x['page_title'] = 'Data : Data list kelengkapan.';
+        if ($id_user != '' || $login != '') {
+            $x['page_title'] = 'Data : Reg kelengkapan';
+
+            $data = array(
+                'rs_user' => '',
+                'page_title' => 'Tambah Reg kelengkapan',
+                'button' => 'Create',
+                'action' => site_url('reg_kelengkapan/tambah_data'),
+                'id' => set_value('id'),
+                'no_registrasi' => set_value('no_registrasi'),
+                'form_pendaftar' => set_value('form_pendaftar'),
+                'ktp' => set_value('ktp'),
+                'npwp' => set_value('npwp'),
+                'pas_foto' => set_value('pas_foto'),
+                'data_orang_tua' => set_value('data_orang_tua'),
+                'data_ujian' => set_value('data_ujian'),
+                'data_ijazah' => set_value('data_ijazah'),
+                'data_nilai' => set_value('data_nilai'),
+                'data_sertifikat' => set_value('data_sertifikat'),
+                'create_at' => set_value('create_at'),
+                'upatated_at' => set_value('upatated_at'),
+                'created_by' => set_value('created_by'),
+            );
+            $this->template->load('template', 'reg_kelengkapan/reg_kelengkapan_form', array_merge($x, $data));
+        } else {
+            show_404();
+        }
+    }
     public function tambah_data()
     {
         $this->_rules();
@@ -134,7 +156,7 @@ class Reg_kelengkapan extends CI_Controller
         if ($id_user != '' || $login != '') {
             if ($row) {
                 $data = array(
-                    'page_title' => 'Data REG_KELENGKAPAN',
+                    'page_title' => 'DATA REGISTRASI KELENGKAPAN',
                     'button' => 'Update',
                     'action' => site_url('reg_kelengkapan/edit_data'),
                     'id' => set_value('id', $row->id),
@@ -223,7 +245,7 @@ class Reg_kelengkapan extends CI_Controller
     }
     function check()
     {
-       error_reporting(0);
+        error_reporting(0);
         if (isset($_POST['kirim'])) {
             $no_registrasi = $this->input->post('no_registrasi');
             $row           = $this->check_reg($no_registrasi);
@@ -247,7 +269,7 @@ class Reg_kelengkapan extends CI_Controller
                 'page_title' => 'Detail :  REG_KELENGKAPAN',
             );
 
-            $this->template->load('template', 'r_check', array_merge(['data', 'no_registrasi'],$x));
+            $this->template->load('template', 'r_check', array_merge(['data', 'no_registrasi'], $x));
         } else {
             $this->template->load('template', 'r_check', ['row', 'no_registrasi']);
         }

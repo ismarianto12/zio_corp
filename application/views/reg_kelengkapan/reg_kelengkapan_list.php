@@ -108,7 +108,15 @@
                                             },
                                         }, 
                                         {
-                                            "data": "data_orang_tua"
+                                            "data": "data_orang_tua",
+                                            "render": function(data, type, row) {
+                                                if (row.data_orang_tua == 1) {
+                                                    return 'Ada';
+                                                } else {
+                                                    return 'Tidak Ada';
+
+                                                }
+                                            },
                                         },
                                         {
                                             "data": "data_ujian"
