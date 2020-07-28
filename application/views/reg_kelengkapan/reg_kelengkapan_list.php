@@ -119,16 +119,48 @@
                                             },
                                         },
                                         {
-                                            "data": "data_ujian"
+                                            "data": "data_ujian",
+                                            "render": function(data, type, row) {
+                                                if (row.data_ujian == 1) {
+                                                    return 'Ada';
+                                                } else {
+                                                    return 'Tidak Ada';
+
+                                                }
+                                            },
                                         },
                                         {
-                                            "data": "data_ijazah"
+                                            "data": "data_ijazah",
+                                            "render": function(data, type, row) {
+                                                if (row.data_ijazah == 1) {
+                                                    return 'Ada';
+                                                } else {
+                                                    return 'Tidak Ada';
+
+                                                }
+                                            },
                                         },
                                         {
-                                            "data": "data_nilai"
+                                            "data": "data_nilai",
+                                            "render": function(data, type, row) {
+                                                if (row.data_sertifikat == 1) {
+                                                    return 'Ada';
+                                                } else {
+                                                    return 'Tidak Ada';
+
+                                                }
+                                            },
                                         },
                                         {
-                                            "data": "data_sertifikat"
+                                            "data": "data_sertifikat",
+                                            "render": function(data, type, row) {
+                                                if (row.data_sertifikat == 1) {
+                                                    return 'Ada';
+                                                } else {
+                                                    return 'Tidak Ada';
+
+                                                }
+                                            },
                                         },
                                         {
                                             "data": "action",
