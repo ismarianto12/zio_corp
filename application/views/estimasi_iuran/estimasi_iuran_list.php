@@ -1,69 +1,142 @@
- <div class='col-lg-12'>
-     <div class='box'>
-         <div class='box-title'>
+ <link href="<?= base_url('assets/css/sweet-alert.css') ?>" rel="stylesheet" />
+ <script type="text/javascript" src="<?= base_url('assets/js/sweet-alert.js') ?>"></script>
+ <section class="content">
+     <div class="row clearfix">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+             <div class="card">
+                 <div class="header">
+                     <h2><?= ucfirst($page_title) ?></h2>
+                 </div>
+                 <div class="body" style="overflow: auto;">
+                     <div class='row'>
+                         <div class='col-sm-12'>
+                             <?= $this->session->flashdata('message') ?>
+                             <div class='white-box'>
+                                 <h3 class='box-title m-b-0'></h3>
+                                 <?php echo anchor(site_url('estimasi_iuran/tambah'), 'Tambah Data', 'class="btn btn-primary "'); ?>
+                                 <?php echo anchor(site_url('estimasi_iuran/excel'), '<i class=\'fa fa-file-excel-o\'></i>Excel', 'class="btn btn-info"'); ?>
+                                 <?php echo anchor(site_url('estimasi_iuran/word'), '<i class=\'fa fa-file-word-o\'></i>Word', 'class="btn btn-danger"'); ?>
 
-             <br />
-             <?php echo anchor(site_url('estimasi_iuran/tambah'), 'Tambah Data', 'class="btn bg-maroon btn-flat margin"'); ?>
-         </div>
-         <div class='ibox-content'>
-             <?= $this->session->flashdata('message') ?>
-             <table class="table table-bordered" style="margin-bottom: 10px">
-                 <tr>
-                     <th>No</th>
-                     <th>Jenis Id</th>
-                     <th>Subkategori Id</th>
-                     <th>Nilai</th>
-                     <th>Quantity</th>
-                     <th>Tot Bayar</th>
-                     <th>Jhitungadmin1</th>
-                     <th>Jhitungadmin2</th>
-                     <th>Jhitungadmin3</th>
-                     <th>Jpemadmin</th>
-                     <th>User Id</th>
-                     <th>Update At</th>
-                     <th>Creaate At</th>
-                     <th>Action</th>
-                  </tr><?php
-                        foreach ($estimasi_iuran_data as $estimasi_iuran) {
-                            ?>
-                     <tr>
-                         <td width="80px"><?php echo ++$start ?></td>
-                         <td><?php echo $estimasi_iuran->jenis_id ?></td>
-                         <td><?php echo $estimasi_iuran->subkategori_id ?></td>
-                         <td><?php echo $estimasi_iuran->nilai ?></td>
-                         <td><?php echo $estimasi_iuran->quantity ?></td>
-                         <td><?php echo $estimasi_iuran->tot_bayar ?></td>
-                         <td><?php echo $estimasi_iuran->jhitungadmin1 ?></td>
-                         <td><?php echo $estimasi_iuran->jhitungadmin2 ?></td>
-                         <td><?php echo $estimasi_iuran->jhitungadmin3 ?></td>
-                         <td><?php echo $estimasi_iuran->jpemadmin ?></td>
-                         <td><?php echo $estimasi_iuran->user_id ?></td>
-                         <td><?php echo $estimasi_iuran->update_at ?></td>
-                         <td><?php echo $estimasi_iuran->creaate_at ?></td>
-                         <td style="text-align:center" width="200px">
-                             <div class='btn-group'>
-                                 <?php
-                                        echo anchor(site_url('estimasi_iuran/detail/' . $estimasi_iuran->id), 'Detail', 'class="btn bg-maroon btn-flat margin"');
-                                        echo '  ';
-                                        echo anchor(site_url('estimasi_iuran/edit/' . $estimasi_iuran->id), 'Edit', 'class="btn bg-green btn-flat margin"');
-                                        echo '  ';
-                                        echo anchor(site_url('estimasi_iuran/hapus/' . $estimasi_iuran->id), 'Hapus', 'class="btn bg-red btn-flat margin"', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
-                                        ?>
+                                 <br /><br />
+                                 <table class="table" id="datatables">
+                                     <thead>
+                                         <tr>
+                                             <th width="80px">No</th>
+                                             <th>Jenis </th>
+                                             <th>Subkategori</th>
+                                             <th>Nilai</th>
+                                             <th>B. Jasa Admin 1</th>
+                                             <th>C. Jasa Admin 2</th>
+                                             <th>D. Jasa Admin 3</th>
+                                             <th>Jasa Admin</th>
+                                             <th>Quantity</th>
+                                             <th>Tot Bayar</th>
+                                             <th>Update At</th>
+                                             <th>Creaate At</th>
+                                             <th width="200px">Action</th>
+                                         </tr>
+                                     </thead>
+
+                                 </table>
+
+                                 <script type="text/javascript">
+                                     $(document).ready(function() {
+                                         $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+                                             return {
+                                                 "iStart": oSettings._iDisplayStart,
+                                                 "iEnd": oSettings.fnDisplayEnd(),
+                                                 "iLength": oSettings._iDisplayLength,
+                                                 "iTotal": oSettings.fnRecordsTotal(),
+                                                 "iFilteredTotal": oSettings.fnRecordsDisplay(),
+                                                 "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+                                                 "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+                                             };
+                                         };
+
+                                         var t = $("#datatables").dataTable({
+                                             initComplete: function() {
+                                                 var api = this.api();
+                                                 $('#datatables input')
+                                                     .off('.DT')
+                                                     .on('keyup.DT', function(e) {
+                                                         if (e.keyCode == 13) {
+                                                             api.search(this.value).draw();
+                                                         }
+                                                     });
+                                             },
+                                             oLanguage: {
+                                                 sProcessing: "loading..."
+                                             },
+                                             processing: true,
+                                             serverSide: true,
+                                             ajax: {
+                                                 "url": "estimasi_iuran/json",
+                                                 "type": "POST"
+                                             },
+                                             columns: [{
+                                                     "data": "id",
+                                                     "orderable": false
+                                                 }, {
+                                                     "data": "jenisnm"
+                                                 }, {
+                                                     "data": "kategorinm"
+                                                 }, {
+                                                     "data": "estimasi_nilai"
+                                                 }, {
+                                                     "data": "jhitungadmin1"
+                                                 }, {
+                                                     "data": "jhitungadmin2"
+                                                 }, {
+                                                     "data": "jhitungadmin3"
+                                                 }, {
+                                                     "data": "jpemadmin"
+                                                 },
+                                                 {
+                                                     "data": "quantity"
+                                                 }, {
+                                                     "data": "tot_bayar"
+                                                 },
+                                                 {
+                                                     "data": "update_at"
+                                                 }, {
+                                                     "data": "creaate_at"
+                                                 },
+                                                 {
+                                                     "data": "action",
+                                                     "orderable": false,
+                                                     "className": "text-center"
+                                                 }
+                                             ],
+                                             order: [
+                                                 [0, 'desc']
+                                             ],
+                                             rowCallback: function(row, data, iDisplayIndex) {
+                                                 var info = this.fnPagingInfo();
+                                                 var page = info.iPage;
+                                                 var length = info.iLength;
+                                                 var index = page * length + (iDisplayIndex + 1);
+                                                 $('td:eq(0)', row).html(index);
+                                             }
+                                         });
+                                     });
+
+                                     function hapus(n) {
+                                         swal({
+                                                 title: 'Konfirmasi Hapus',
+                                                 text: 'Apakah Anda Yakin Untuk Menghapus Data Ini?',
+                                                 type: 'warning',
+                                                 showCancelButton: true,
+                                                 confirmButtonClass: 'btn-danger',
+                                                 confirmButtonText: 'Ya',
+                                                 closeOnConfirm: false
+                                             },
+                                             function() {
+                                                 swal('Hapus Data', 'Data Berhasil Di Hapus', 'success');
+                                                 window.location.href = '<?= base_url('estimasi_iuran/hapus/') ?>' + n;
+                                             });
+                                     }
+                                 </script>
                              </div>
-                         </td>
-                     </tr>
-                 <?php
-                    }
-                    ?>
-             </table>
-             <div class="row">
-                 <div class="col-md-6">
-                     <a href="#" class="btn btn-info">Total Data Yang Tersedia : <?php echo $total_rows ?></a>
+                         </div>
+                     </div>
                  </div>
-                 <div class="col-md-6 text-right">
-                     <?php echo $pagination ?>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>

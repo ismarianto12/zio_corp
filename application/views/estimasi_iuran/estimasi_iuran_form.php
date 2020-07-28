@@ -13,19 +13,19 @@
                         <div class='col-sm-12'>
                             <?= $this->session->flashdata('message') ?>
                             <div class=\'white-box\'>
-                            <center>     
-                            <h3 class='box-title m-b-0'>Form Estimasi Iuran </h3>
-                            <sub><b>Nomor Form : A/12-2020/A</b></sub>
-                            </center>
+                                <center>
+                                    <h3 class='box-title m-b-0'>Form Estimasi Iuran </h3>
+                                    <sub><b>Nomor Form : A/12-2020/A</b></sub>
+                                </center>
                                 <form action="<?php echo $action; ?>" method="post" class='form-horizontal form-bordered'>
-                                    <div class='form-body'> 
+                                    <div class='form-body'>
                                         <br /><br /><br /><br />
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>Jenis Iuran <?php echo form_error('jenis_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="jenis_id" id="jenis_id">
-                                                    <?php 
-                                                    $data = $this->db->get_where('jenis',['category !='=>'1']);
+                                                <select class="form-control" name="type_id" id="type">
+                                                    <?php
+                                                    $data = $this->db->get_where('jenis', ['category !=' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
                                                         ?>
@@ -41,7 +41,7 @@
                                             <div class='col-md-9'>
                                                 <select class="form-control" name="subkategori_id" id="subkategori_id">
                                                     <?php
-                                                    $sdata = $this->db->get_where('subkategori',['category !='=>'1']);
+                                                    $sdata = $this->db->get_where('subkategori', ['category !=' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
                                                         ?>
@@ -54,7 +54,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="varchar" class='control-label col-md-3'><b>B. Jasa Hitung admin 1<?php echo form_error('quantity') ?></b></label>
+                                            <label for="varchar" class='control-label col-md-3'><b>B. Jasa Hitung admin 1<?php echo form_error('jhitungadmin1') ?></b></label>
                                             <div class='col-md-9'>
                                                 <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="<?php echo $jhitungadmin1; ?>" />
                                             </div>
@@ -63,9 +63,9 @@
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>Jenis<?php echo form_error('jenis_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="jenis_id" id="jenis_id">
-                                                    <?php 
-                                                    $data = $this->db->get_where('jenis',['category'=>'1']);
+                                                <select class="form-control" name="jenis_id" id="jenis_id1">
+                                                    <?php
+                                                    $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
                                                         ?>
@@ -76,12 +76,52 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" id="jsubkategori_id1">
                                             <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="subkategori_id" id="subkategori_id">
+                                                <select class="form-control" name="jsubkategori_id" id="jsubkategori_id">
                                                     <?php
-                                                    $sdata = $this->db->get_where('subkategori',['category'=>'1']);
+                                                    $sdata = $this->db->get_where('subkategori', ['category' => '1']);
+                                                    foreach ($sdata->result_array() as $ldat) {
+                                                        $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
+                                                        ?>
+                                                        <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin2') ?></b></label>
+                                            <div class='col-md-9'>
+                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin2; ?>" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="int" class='control-label col-md-3'><b>Jenis <?php echo form_error('jenis_id') ?></b></label>
+                                            <div class='col-md-9'>
+                                                <select class="form-control" name="jenis_id" id="jenis_id2">
+                                                    <?php
+                                                    $data = $this->db->get_where('jenis', ['category' => '1']);
+                                                    foreach ($data->result_array() as $dat) {
+                                                        $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
+                                                        ?>
+                                                        <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="jsubkategori_id2">
+                                            <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
+                                            <div class='col-md-9'>
+                                                <select class="form-control" name="jsubkategori_id" id="jsubkategori_id">
+                                                    <?php
+                                                    $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
                                                         ?>
@@ -95,18 +135,18 @@
 
 
                                         <div class="form-group">
-                                            <label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('quantity') ?></b></label>
+                                            <label for="varchar" class='control-label col-md-3'><b>D. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin3') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>" />
+                                                <input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin3; ?>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>Jenis <?php echo form_error('jenis_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="jenis_id" id="jenis_id">
-                                                    <?php 
-                                                    $data = $this->db->get_where('jenis',['category'=>'1']);
+                                                <select class="form-control" name="jenis_id" id="jenis_id3">
+                                                    <?php
+                                                    $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
                                                         ?>
@@ -117,53 +157,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" id="jsubkategori_id3">
                                             <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="subkategori_id" id="subkategori_id">
+                                                <select class="form-control" name="jsubkategori_id" id="jsubkategori_id">
                                                     <?php
-                                                    $sdata = $this->db->get_where('subkategori',['category'=>'1']);
-                                                    foreach ($sdata->result_array() as $ldat) {
-                                                        $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
-                                                        ?>
-                                                        <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="varchar" class='control-label col-md-3'><b>D. Jasa Hitung admin 1 <?php echo form_error('quantity') ?></b></label>
-                                            <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>" />
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="int" class='control-label col-md-3'><b>Jenis <?php echo form_error('jenis_id') ?></b></label>
-                                            <div class='col-md-9'>
-                                                <select class="form-control" name="jenis_id" id="jenis_id">
-                                                    <?php 
-                                                    $data = $this->db->get_where('jenis',['category'=>'1']);
-                                                    foreach ($data->result_array() as $dat) {
-                                                        $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
-                                                        ?>
-                                                        <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
-                                            <div class='col-md-9'>
-                                                <select class="form-control" name="subkategori_id" id="subkategori_id">
-                                                    <?php
-                                                    $sdata = $this->db->get_where('subkategori',['category'=>'1']);
+                                                    $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
                                                         ?>
@@ -179,11 +178,12 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>E. Jasa Pembayaran admin <?php echo form_error('quantity') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Jasa Pembayaran admin" value="5000" readonly/>
+                                                <input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" readonly />
+                                                <small> * ) Nilai Yang di tetapkan 50.000, entri data jika ingin mengubah</small>
                                             </div>
                                         </div>
 
-  
+
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>Tot Bayar<?php echo form_error('tot_bayar') ?></b></label>
                                             <div class='col-md-9'>
@@ -195,7 +195,7 @@
                                             <label for="varchar" class='control-label col-md-3'><b>Nilai<?php echo form_error('nilai') ?></b></label>
                                             <div class='col-md-9'>
                                                 <div id="tampil_nilai"></div>
-                                                <input type="hidden" class="form-control" name="nilai" id="nilai" placeholder="Nilai" /> 
+                                                <input type="hidden" class="form-control" name="nilai" id="nilai" placeholder="Nilai" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -238,8 +238,41 @@
 
             <script>
                 $(function() {
+                    $('#jsubkategori_id1').hide();
+                    $('#jsubkategori_id2').hide();
+                    $('#jsubkategori_id3').hide();
+
+                    $('#jenis_id1').change(function() {
+                        var jenis_id1 = $(this).val();
+                        if (jenis_id1 == 9) {
+                            $('#jsubkategori_id1').show();
+                        } else {
+                            $('#jsubkategori_id1').hide();
+                        }
+                    });
+
+
+                    $('#jenis_id2').change(function() {
+                        jenis_id3 = $(this).val();
+                        if (jenis_id3 == 9) {
+                            $('#jsubkategori_id2').show();
+                        } else {
+                            $('#jsubkategori_id2').hide();
+                        }
+                    });
+
+                    $('#jenis_id3').change(function() {
+                        jenis_id3 = $(this).val();
+                        if (jenis_id3 == 9) {
+                            $('#jsubkategori_id3').show();
+                        } else {
+                            $('#jsubkategori_id3').hide();
+                        }
+                    });
+
                     $('#subkategori_id').change(function() {
                         var subkategori_id = $(this).val();
+
                         $.ajax({
                             url: '<?= base_url('subkategori/get_id') ?>',
                             type: 'POST',
@@ -263,10 +296,15 @@
 
                     $("#quantity").keyup(function() {
                         nilai = parseInt($('#nilai').val());
+                        jhitungadmin1 = $('#jhitungadmin1').val();
+                        jhitungadmin2 = $('#jhitungadmin2').val();
+                        jhitungadmin3 = $('#jhitungadmin3').val();
+                        jpemadmin = $('#jpemadmin').val();
+
                         if (nilai == '') {
                             swal('error', 'silahkan entrikan nilai terlebih dahulu');
                         } else {
-                            total = parseInt(this.value) * parseInt(nilai);
+                            total = (parseInt(this.value) * parseInt(nilai)) + parseInt(jhitungadmin1) + parseInt(jhitungadmin2) + parseInt(jhitungadmin3) + parseInt(jpemadmin);
                             $('#tot_bayar').attr('readonly', true);
                             $("#tot_bayar").val(total);
                         }

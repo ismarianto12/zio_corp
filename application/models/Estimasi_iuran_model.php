@@ -15,6 +15,17 @@ class Estimasi_iuran_model extends CI_Model
         parent::__construct();
     }
 
+    // datatables
+    function json() {
+        $this->datatables->select('jenisnm,kategorinm,estimasi_iuran.id,jenis_id,subkategori_id,estimasi_iuran.nilai as estimasi_nilai,quantity,tot_bayar,jhitungadmin1,jhitungadmin2,jhitungadmin3,jpemadmin,estimasi_iuran.user_id as admin,estimasi_iuran.update_at,estimasi_iuran.creaate_at');
+        $this->datatables->from('estimasi_iuran');
+        //add this line for join
+        $this->datatables->join('jenis', 'estimasi_iuran.jenis_id = jenis.id');
+        $this->datatables->join('subkategori', 'estimasi_iuran.subkategori_id = subkategori.id');  
+        $this->datatables->add_column('action', anchor(site_url('estimasi_iuran/detail/$1'),'<i class="fa fa-book"></i>Read','class="btn btn-info btn-xs edit"')."  ".anchor(site_url('estimasi_iuran/edit/$1'),'<i class="fa fa-edit"></i> Update','class="btn btn-success btn-xs edit"')."<a href='#' class='btn btn-danger btn-xs delete' onclick='javasciprt: return hapus($1)'><i class='fa fa-trash'></i> Delete</a>", 'id');
+        return $this->datatables->generate();
+    }
+
     // get all
     function get_all()
     {
