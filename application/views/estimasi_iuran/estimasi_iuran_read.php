@@ -12,6 +12,10 @@
 	    <tr><td>Nilai</td><td><?php echo $nilai; ?></td></tr>
 	    <tr><td>Quantity</td><td><?php echo $quantity; ?></td></tr>
 	    <tr><td>Tot Bayar</td><td><?php echo $tot_bayar; ?></td></tr>
+	    <tr><td>Jhitungadmin1</td><td><?php echo $jhitungadmin1; ?></td></tr>
+	    <tr><td>Jhitungadmin2</td><td><?php echo $jhitungadmin2; ?></td></tr>
+	    <tr><td>Jhitungadmin3</td><td><?php echo $jhitungadmin3; ?></td></tr>
+	    <tr><td>Jpemadmin</td><td><?php echo $jpemadmin; ?></td></tr>
 	    <tr><td>User Id</td><td><?php echo $user_id; ?></td></tr>
 	    <tr><td>Update At</td><td><?php echo $update_at; ?></td></tr>
 	    <tr><td>Creaate At</td><td><?php echo $creaate_at; ?></td></tr>

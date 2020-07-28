@@ -15,16 +15,6 @@ class Estimasi_iuran_model extends CI_Model
         parent::__construct();
     }
 
-    // datatables
-    function json() {
-        $this->datatables->select('id,jenis_id,subkategori_id,nilai,quantity,tot_bayar,user_id,update_at,creaate_at');
-        $this->datatables->from('estimasi_iuran');
-        //add this line for join
-        //$this->datatables->join('table2', 'estimasi_iuran.field = table2.field');
-        $this->datatables->add_column('action', anchor(site_url('estimasi_iuran/detail/$1'),'<i class="fa fa-book"></i>Read','class="btn btn-info btn-xs edit"')."  ".anchor(site_url('estimasi_iuran/edit/$1'),'<i class="fa fa-edit"></i> Update','class="btn btn-success btn-xs edit"')."<a href='#' class='btn btn-danger btn-xs delete' onclick='javasciprt: return hapus($1)'><i class='fa fa-trash'></i> Delete</a>", 'id');
-        return $this->datatables->generate();
-    }
-
     // get all
     function get_all()
     {
@@ -47,6 +37,10 @@ class Estimasi_iuran_model extends CI_Model
 	$this->db->or_like('nilai', $q);
 	$this->db->or_like('quantity', $q);
 	$this->db->or_like('tot_bayar', $q);
+	$this->db->or_like('jhitungadmin1', $q);
+	$this->db->or_like('jhitungadmin2', $q);
+	$this->db->or_like('jhitungadmin3', $q);
+	$this->db->or_like('jpemadmin', $q);
 	$this->db->or_like('user_id', $q);
 	$this->db->or_like('update_at', $q);
 	$this->db->or_like('creaate_at', $q);
@@ -63,6 +57,10 @@ class Estimasi_iuran_model extends CI_Model
 	$this->db->or_like('nilai', $q);
 	$this->db->or_like('quantity', $q);
 	$this->db->or_like('tot_bayar', $q);
+	$this->db->or_like('jhitungadmin1', $q);
+	$this->db->or_like('jhitungadmin2', $q);
+	$this->db->or_like('jhitungadmin3', $q);
+	$this->db->or_like('jpemadmin', $q);
 	$this->db->or_like('user_id', $q);
 	$this->db->or_like('update_at', $q);
 	$this->db->or_like('creaate_at', $q);

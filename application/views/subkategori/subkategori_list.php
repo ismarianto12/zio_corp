@@ -13,8 +13,7 @@
                               <?= $this->session->flashdata('message') ?>
                               <div class='white-box\'>
                                   <h3 class='box-title m-b-0\'></h3>
-                                  <?php echo anchor(site_url('subkategori/tambah'), 'Tambah Data', 'class="btn btn-primary"'); ?>
-
+                                  <?php echo anchor(site_url('subkategori/tambah'), 'Tambah Data', 'class="btn btn-primary"'); ?> 
                                   <br /><br />
                                   <table class="table" id="datatables">
                                       <thead>

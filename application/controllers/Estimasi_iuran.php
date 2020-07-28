@@ -14,19 +14,39 @@ class Estimasi_iuran extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Estimasi_iuran_model');
-        $this->load->library('form_validation');   
-	$this->load->library('datatables');
+        $this->load->library('form_validation');
     }
 
     public function index()
     {
-         $x['page_title'] = 'Data : Estimasi iuran';
-         $this->template->load('template','estimasi_iuran/estimasi_iuran_list',$x);
-    } 
-    
-    public function json() {
-        header('Content-Type: application/json');
-        echo $this->Estimasi_iuran_model->json();
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'estimasi_iuran/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'estimasi_iuran/?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'estimasi_iuran';
+            $config['first_url'] = base_url() . 'estimasi_iuran';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->Estimasi_iuran_model->total_rows($q);
+        $estimasi_iuran = $this->Estimasi_iuran_model->get_limit_data($config['per_page'], $start, $q);
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'estimasi_iuran_data' => $estimasi_iuran,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+            'page_title'=>'Data ESTIMASI_IURAN'
+        );
+        $this->template->load('template','estimasi_iuran/estimasi_iuran_list', $data);
     }
 
     public function detail($id) 
@@ -40,6 +60,10 @@ class Estimasi_iuran extends CI_Controller
 		'nilai' => $row->nilai,
 		'quantity' => $row->quantity,
 		'tot_bayar' => $row->tot_bayar,
+		'jhitungadmin1' => $row->jhitungadmin1,
+		'jhitungadmin2' => $row->jhitungadmin2,
+		'jhitungadmin3' => $row->jhitungadmin3,
+		'jpemadmin' => $row->jpemadmin,
 		'user_id' => $row->user_id,
 		'update_at' => $row->update_at,
 		'creaate_at' => $row->creaate_at,
@@ -65,6 +89,10 @@ class Estimasi_iuran extends CI_Controller
 	    'nilai' => set_value('nilai'),
 	    'quantity' => set_value('quantity'),
 	    'tot_bayar' => set_value('tot_bayar'),
+	    'jhitungadmin1' => set_value('jhitungadmin1'),
+	    'jhitungadmin2' => set_value('jhitungadmin2'),
+	    'jhitungadmin3' => set_value('jhitungadmin3'),
+	    'jpemadmin' => set_value('jpemadmin'),
 	    'user_id' => set_value('user_id'),
 	    'update_at' => set_value('update_at'),
 	    'creaate_at' => set_value('creaate_at'),
@@ -85,6 +113,10 @@ class Estimasi_iuran extends CI_Controller
 		'nilai' => $this->input->post('nilai',TRUE),
 		'quantity' => $this->input->post('quantity',TRUE),
 		'tot_bayar' => $this->input->post('tot_bayar',TRUE),
+		'jhitungadmin1' => $this->input->post('jhitungadmin1',TRUE),
+		'jhitungadmin2' => $this->input->post('jhitungadmin2',TRUE),
+		'jhitungadmin3' => $this->input->post('jhitungadmin3',TRUE),
+		'jpemadmin' => $this->input->post('jpemadmin',TRUE),
 		'user_id' => $this->input->post('user_id',TRUE),
 		'update_at' => $this->input->post('update_at',TRUE),
 		'creaate_at' => $this->input->post('creaate_at',TRUE),
@@ -111,6 +143,10 @@ class Estimasi_iuran extends CI_Controller
 		'nilai' => set_value('nilai', $row->nilai),
 		'quantity' => set_value('quantity', $row->quantity),
 		'tot_bayar' => set_value('tot_bayar', $row->tot_bayar),
+		'jhitungadmin1' => set_value('jhitungadmin1', $row->jhitungadmin1),
+		'jhitungadmin2' => set_value('jhitungadmin2', $row->jhitungadmin2),
+		'jhitungadmin3' => set_value('jhitungadmin3', $row->jhitungadmin3),
+		'jpemadmin' => set_value('jpemadmin', $row->jpemadmin),
 		'user_id' => set_value('user_id', $row->user_id),
 		'update_at' => set_value('update_at', $row->update_at),
 		'creaate_at' => set_value('creaate_at', $row->creaate_at),
@@ -135,6 +171,10 @@ class Estimasi_iuran extends CI_Controller
 		'nilai' => $this->input->post('nilai',TRUE),
 		'quantity' => $this->input->post('quantity',TRUE),
 		'tot_bayar' => $this->input->post('tot_bayar',TRUE),
+		'jhitungadmin1' => $this->input->post('jhitungadmin1',TRUE),
+		'jhitungadmin2' => $this->input->post('jhitungadmin2',TRUE),
+		'jhitungadmin3' => $this->input->post('jhitungadmin3',TRUE),
+		'jpemadmin' => $this->input->post('jpemadmin',TRUE),
 		'user_id' => $this->input->post('user_id',TRUE),
 		'update_at' => $this->input->post('update_at',TRUE),
 		'creaate_at' => $this->input->post('creaate_at',TRUE),
@@ -167,6 +207,10 @@ class Estimasi_iuran extends CI_Controller
 	$this->form_validation->set_rules('nilai', 'nilai', 'trim|required');
 	$this->form_validation->set_rules('quantity', 'quantity', 'trim|required');
 	$this->form_validation->set_rules('tot_bayar', 'tot bayar', 'trim|required');
+	$this->form_validation->set_rules('jhitungadmin1', 'jhitungadmin1', 'trim|required');
+	$this->form_validation->set_rules('jhitungadmin2', 'jhitungadmin2', 'trim|required');
+	$this->form_validation->set_rules('jhitungadmin3', 'jhitungadmin3', 'trim|required');
+	$this->form_validation->set_rules('jpemadmin', 'jpemadmin', 'trim|required');
 	$this->form_validation->set_rules('user_id', 'user id', 'trim|required');
 	$this->form_validation->set_rules('update_at', 'update at', 'trim|required');
 	$this->form_validation->set_rules('creaate_at', 'creaate at', 'trim|required');
