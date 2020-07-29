@@ -122,7 +122,7 @@
 
       <div class="col-md-4 col-xs-4">
         <div class="info-box hover-expand-effect" style="background-color: transparent" align="center">
-          <div align="left"><a href="#"><img src="<?php echo base_url(); ?>assets/images/icon/info.png" width="30px" height="30px;" border="0" ; /> <span class="style7">Refresh</span></a></div>
+          <div align="left"><a href="<?php echo base_url('estimasi_iuran/tambah'); ?>"><img src="<?php echo base_url(); ?>assets/images/icon/info.png" width="30px" height="30px;" border="0" ; /> <span class="style7">Analisa Harga</span></a></div>
         </div>
       </div>
 

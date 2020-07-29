@@ -101,11 +101,18 @@ class Estimasi_iuran extends CI_Controller
                 'user_id' => $this->session->user_id,
                 'update_at' => date('Y-m-d H:i:s'),
                 'creaate_at' => date('Y-m-d H:i:s'),
-            );
-
+            ); 
             $this->Estimasi_iuran_model->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
-            redirect(site_url('estimasi_iuran'));
+            $id_user = $this->session->id_user;
+            if ($id_user != '') {
+                $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
+                $redirect = redirect(site_url('estimasi_iuran'));
+            } else {
+                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array(); 
+                $id_estimasi = $data['id']; 
+                $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Simpan.</div>');
+                $redirect    = redirect(site_url('estimasi_iuran/detail/'.$id_estimasi));
+            }
         }
     }
 
@@ -192,7 +199,7 @@ class Estimasi_iuran extends CI_Controller
         $this->form_validation->set_rules('jhitungadmin2', 'jhitungadmin2', 'trim|required');
         $this->form_validation->set_rules('jhitungadmin3', 'jhitungadmin3', 'trim|required');
         $this->form_validation->set_rules('jpemadmin', 'jpemadmin', 'trim|required');
-        
+
         $this->form_validation->set_rules('id', 'id', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
