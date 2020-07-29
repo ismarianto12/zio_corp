@@ -1,6 +1,13 @@
 <link href="<?= base_url('assets/css/sweet-alert.css') ?>" rel="stylesheet" />
 <script type="text/javascript" src="<?= base_url('assets/js/sweet-alert.js') ?>"></script>
 
+
+<?php
+$role = $this->session->id_role;
+$role_ck = ($role == 0) ? 'readonly' : '';
+?>
+
+
 <section class="content">
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -56,7 +63,7 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>B. Jasa Hitung admin 1<?php echo form_error('jhitungadmin1') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="<?php echo $jhitungadmin1; ?>" />
+                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="2000" <?= $role_ck ?>/>
                                             </div>
                                         </div>
 
@@ -96,15 +103,16 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin2') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin2; ?>" />
+                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?>/>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>Jenis <?php echo form_error('jenis_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="jenis_id" id="jenis_id2">
-                                                    <?php
+                                                <select class="form-control" name="jenis_id" id="jenis_id2" required>
+                                                 <option val=""> - Silahkan Pilih Sub Kategori - </option>
+                                                   <?php
                                                     $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
@@ -119,8 +127,9 @@
                                         <div class="form-group" id="jsubkategori_id2">
                                             <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="jsubkategori_id" id="jsubkategori_id">
-                                                    <?php
+                                                <select class="form-control" name="jsubkategori_id" id="jsubkategori_id" required>
+                                                   <option val=""> - Silahkan Pilih Sub Kategori - </option>
+                                                   <?php
                                                     $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
@@ -137,7 +146,7 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>D. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin3') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin3; ?>" />
+                                                <input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -178,7 +187,7 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>E. Jasa Pembayaran admin <?php echo form_error('quantity') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" readonly />
+                                                <input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" <?= $role_ck ?> />
                                                 <small> * ) Nilai Yang di tetapkan 50.000, entri data jika ingin mengubah</small>
                                             </div>
                                         </div>
