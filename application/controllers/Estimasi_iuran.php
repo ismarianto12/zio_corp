@@ -19,9 +19,18 @@ class Estimasi_iuran extends CI_Controller
     }
 
     public function index()
-    {
+    { 
+        $id_user    = $this->session->id_user;
+        $role       = $this->session->role; 
+        
+        if ($id_user != '' ||  $role == 0) {
+
         $x['page_title'] = 'Data : Estimasi iuran';
         $this->template->load('template', 'estimasi_iuran/estimasi_iuran_list', $x);
+        }else{
+            show_404();
+            exit();
+        }
     }
 
     public function json()
@@ -104,10 +113,18 @@ class Estimasi_iuran extends CI_Controller
             ); 
             $this->Estimasi_iuran_model->insert($data);
             $id_user = $this->session->id_user;
-            if ($id_user != '') {
+            $role = $this->session->role;
+            
+            if ($id_user != '' ||  $role == 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
                 $redirect = redirect(site_url('estimasi_iuran'));
-            } else {
+            }elseif($role != 0){  
+                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array(); 
+                $id_estimasi = $data['id']; 
+                $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Simpan.</div>');
+                $redirect    = redirect(site_url('estimasi_iuran/detail/'.$id_estimasi));
+           
+            }else {
                 $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array(); 
                 $id_estimasi = $data['id']; 
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Simpan.</div>');
@@ -122,7 +139,7 @@ class Estimasi_iuran extends CI_Controller
 
         if ($row) {
             $data = array(
-                'page_title' => 'Data ESTIMASI_IURAN',
+                'page_title' => 'Data Estimasi Iuran',
                 'button' => 'Update',
                 'action' => site_url('estimasi_iuran/edit_data'),
                 'id' => set_value('id', $row->id),
