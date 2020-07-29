@@ -22,7 +22,7 @@ class Estimasi_iuran extends CI_Controller
     { 
         $id_user    = $this->session->id_user;
         $role       = $this->session->role; 
-        
+
         if ($id_user != '' ||  $role == 0) {
 
         $x['page_title'] = 'Data : Estimasi iuran';
@@ -113,9 +113,9 @@ class Estimasi_iuran extends CI_Controller
             ); 
             $this->Estimasi_iuran_model->insert($data);
             $id_user = $this->session->id_user;
-            $role = $this->session->role;
+            $role = $this->session->id_role;
             
-            if ($id_user != '' ||  $role == 0) {
+            if ($id_user != '' AND  $role == 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
                 $redirect = redirect(site_url('estimasi_iuran'));
             }elseif($role != 0){  
