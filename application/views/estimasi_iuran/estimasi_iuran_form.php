@@ -214,13 +214,17 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             </div>
                                         </div>
 
-
+                                     <?php if($this->session->id_role != ''){  ?>  
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>User Id<?php echo form_error('user_id') ?></b></label>
                                             <div class='col-md-9'>
                                                 <?= $this->session->userdata('username') ?>
                                             </div>
                                         </div>
+                                     <?php }else{
+
+                                     } ?>
+
                                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
                                         <input type="hidden" name="user_id" value="<?php echo $this->session->id_user; ?>" />
 
