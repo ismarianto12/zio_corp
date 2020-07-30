@@ -22,7 +22,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                             <div class=\'white-box\'>
                                 <center>
                                     <h3 class='box-title m-b-0'>Form Estimasi Iuran </h3>
-                                    <sub><b>Nomor Form : A/12-2020/A</b></sub>
+                                    <sub><b>Nomor Form : <?= $no_form ?></b></sub>
                                 </center>
                                 <form action="<?php echo $action; ?>" method="post" class='form-horizontal form-bordered'>
                                     <div class='form-body'>
@@ -46,8 +46,9 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                         <div class="form-group">
                                             <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
                                             <div class='col-md-9'>
-                                                <select class="form-control" name="subkategori_id" id="subkategori_id">
-                                                    <?php
+                                                <select class="form-control" name="subkategori_id" id="subkategori_id" required>
+                                                    <option value="">--Pilih Sub -- </option>
+                                                   <?php
                                                     $sdata = $this->db->get_where('subkategori', ['category !=' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';

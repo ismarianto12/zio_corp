@@ -15,7 +15,7 @@ class Estimasi_iuran extends CI_Controller
         parent::__construct();
         $this->load->model('Estimasi_iuran_model');
         $this->load->library('form_validation');
-        $this->load->library('datatables');
+        $this->load->library(['datatables','Properti']); 
     }
 
     public function index()
@@ -69,11 +69,14 @@ class Estimasi_iuran extends CI_Controller
 
     public function tambah()
     {
-        $data = array(
+        $lib      = $this->properti->getForm();
+        $no_form  = 'FORM/'.date('Y-m-d').'/'.$lib;
+         $data = array(
             'page_title' => 'Tambah Estimasi iuran',
             'button' => 'Create',
             'action' => site_url('estimasi_iuran/tambah_data'),
             'id' => set_value('id'),
+            'no_form'=>$no_form,
             'jenis_id' => set_value('jenis_id'),
             'subkategori_id' => set_value('subkategori_id'),
             'nilai' => set_value('nilai'),

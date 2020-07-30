@@ -12,7 +12,7 @@
 					<div class='row'>
 						<div class='col-sm-12'>
 							<?= $this->session->flashdata('message') ?>
-							<div class=\'white-box\'>
+							<div class='white-box'>
 								<center>
 									<h3 class='box-title m-b-0'>Form Estimasi Iuran </h3>
 									<sub><b>Nomor Form : A/12-2020/A</b></sub>
@@ -96,7 +96,7 @@
 										<div class="form-group">
 											<label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin2') ?></b></label>
 											<div class='col-md-9'>
-												<input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin2; ?>" />
+												<?php echo number_format($jhitungadmin2, 0, 0, '.'); ?>
 											</div>
 										</div>
 
@@ -136,8 +136,7 @@
 
 										<div class="form-group">
 											<label for="varchar" class='control-label col-md-3'><b>D. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin3') ?></b></label>
-											<div class='col-md-9'>
-												<input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="<?php echo $jhitungadmin3; ?>" />
+											<div class='col-md-9'> <?php echo number_format($jhitungadmin3, 0, 0, '.'); ?>
 											</div>
 										</div>
 
@@ -178,7 +177,7 @@
 										<div class="form-group">
 											<label for="varchar" class='control-label col-md-3'><b>E. Jasa Pembayaran admin <?php echo form_error('quantity') ?></b></label>
 											<div class='col-md-9'>
-												<input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" readonly />
+												<?= number_format($jpemadmin, 0, 0, '.') ?>
 												<small> * ) Nilai Yang di tetapkan 50.000, entri data jika ingin mengubah</small>
 											</div>
 										</div>
@@ -187,7 +186,7 @@
 										<div class="form-group">
 											<label for="varchar" class='control-label col-md-3'><b>Tot Bayar<?php echo form_error('tot_bayar') ?></b></label>
 											<div class='col-md-9'>
-												<input type="text" class="form-control" name="tot_bayar" id="tot_bayar" placeholder="Tot Bayar" value="<?php echo $tot_bayar; ?>" />
+												<?php echo number_format($tot_bayar, 0, 0, '.'); ?>
 											</div>
 										</div>
 
@@ -207,7 +206,7 @@
 
 
 										<div class="form-group">
-											<label for="int" class='control-label col-md-3'><b>User Id<?php echo form_error('user_id') ?></b></label>
+											<label for="int" class='control-label col-md-3'><b>User input<?php echo form_error('user_id') ?></b></label>
 											<div class='col-md-9'>
 												<?= $this->session->userdata('username') ?>
 											</div>
