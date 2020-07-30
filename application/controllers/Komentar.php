@@ -17,7 +17,7 @@ class Komentar extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('datatables');
         if ($this->session->userdata('user_id') == '') {
-            echo '<script>alert("Silahkan login memberi komentar")</script>';
+            echo '<script>alert("Silahkan login memberi komentar"); window.location.href="'.base_url().'"</script>';
             exit();
         }
     }
