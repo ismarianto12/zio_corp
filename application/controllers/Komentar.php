@@ -16,6 +16,10 @@ class Komentar extends CI_Controller
         $this->load->model('Komentar_model');
         $this->load->library('form_validation');
         $this->load->library('datatables');
+        if ($this->session->userdata('user_id') == '') {
+            echo '<script>alert("Silahkan login memberi komentar")</script>';
+            exit();
+        }
     }
 
     public function index()
@@ -144,7 +148,7 @@ class Komentar extends CI_Controller
     public function _rules()
     {
         $this->form_validation->set_rules('komentar', 'komentar', 'trim|required');
-         $this->form_validation->set_rules('id', 'id', 'trim');
+        $this->form_validation->set_rules('id', 'id', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 

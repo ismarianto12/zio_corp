@@ -21,8 +21,7 @@
                                             <div class='col-md-9'>
                                                 <textarea class="form-control" rows="3" name="komentar" id="komentar" placeholder="Komentar"><?php echo $komentar; ?></textarea>
                                             </div>
-                                        </div>
-
+                                        </div> 
                                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
 
