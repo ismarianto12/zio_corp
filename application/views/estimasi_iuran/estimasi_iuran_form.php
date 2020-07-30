@@ -1,13 +1,9 @@
 <link href="<?= base_url('assets/css/sweet-alert.css') ?>" rel="stylesheet" />
 <script type="text/javascript" src="<?= base_url('assets/js/sweet-alert.js') ?>"></script>
-
-
 <?php
 $role = $this->session->id_role;
 $role_ck = ($role == 0) ? 'readonly' : '';
-?>
-
-
+?>  
 <section class="content">
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -183,16 +179,14 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                 </select>
                                             </div>
                                         </div>
-
-
+ 
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>E. Jasa Pembayaran admin <?php echo form_error('quantity') ?></b></label>
                                             <div class='col-md-9'>
                                                 <input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" <?= $role_ck ?> />
                                                 <small> * ) Nilai Yang di tetapkan 50.000, entri data jika ingin mengubah</small>
                                             </div>
-                                        </div>
-
+                                        </div>  
 
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>Tot Bayar<?php echo form_error('tot_bayar') ?></b></label>
