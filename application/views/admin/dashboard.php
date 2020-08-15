@@ -157,7 +157,7 @@
         <!-- small box -->
 
         <div class="info-box hover-zoom-effect" style="background-color: transparent" align="center">
-          <div align="left"><a href="<?php echo site_url('reg_kelengkapan/check'); ?>"><img src="<?php echo base_url(); ?>assets/images/icon/profil3.png" width="30px" ; height="30px;"> <span class="style7">Komentar </span> </a> </div>
+          <div align="left"><a href="<?php echo site_url('reg_kelengkapan/check'); ?>"><img src="<?php echo base_url(); ?>assets/images/icon/profile2.png" width="30px" ; height="30px;"> <span class="style7">Check kelengkapan </span> </a> </div>
         </div>
       </div>
 
