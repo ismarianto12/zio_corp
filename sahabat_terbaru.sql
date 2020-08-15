@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2020 at 01:47 PM
+-- Generation Time: Aug 15, 2020 at 05:25 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -128,6 +128,40 @@ INSERT INTO `dinas` (`id_dinas`, `nama_dinas`, `alamat_dinas`, `no_telepon`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `estimasi_iuran`
+--
+
+CREATE TABLE `estimasi_iuran` (
+  `id` int(14) NOT NULL,
+  `nomor_form` varchar(30) NOT NULL,
+  `jenis_id` int(15) NOT NULL,
+  `subkategori_id` int(15) NOT NULL,
+  `nilai` varchar(20) NOT NULL,
+  `quantity` varchar(20) NOT NULL,
+  `tot_bayar` varchar(100) NOT NULL,
+  `jhitungadmin1` varchar(30) NOT NULL,
+  `jhitungadmin2` varchar(30) NOT NULL,
+  `jhitungadmin3` varchar(30) NOT NULL,
+  `jpemadmin` varchar(30) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `update_at` datetime NOT NULL,
+  `creaate_at` datetime NOT NULL,
+  `no_formulir` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `estimasi_iuran`
+--
+
+INSERT INTO `estimasi_iuran` (`id`, `nomor_form`, `jenis_id`, `subkategori_id`, `nilai`, `quantity`, `tot_bayar`, `jhitungadmin1`, `jhitungadmin2`, `jhitungadmin3`, `jpemadmin`, `user_id`, `update_at`, `creaate_at`, `no_formulir`) VALUES
+(4, '', 1, 3, '5000', '3', '620000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 01:11:00', '2020-07-29 01:11:00', ''),
+(5, '', 1, 3, '5000', '121', '1210000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 11:36:42', '2020-07-29 11:36:42', ''),
+(6, '', 3, 3, '5000', '12', '665000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 12:18:16', '2020-07-29 12:18:16', ''),
+(7, '', 1, 3, '5000', '2', '615000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 12:19:41', '2020-07-29 12:19:41', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `events`
 --
 
@@ -210,7 +244,6 @@ CREATE TABLE `form_inputan` (
 --
 
 INSERT INTO `form_inputan` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
-(5, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:14', '2020-07-21 11:41:14'),
 (6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
 (7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
 (8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
@@ -315,6 +348,50 @@ INSERT INTO `jawaban` (`aid`, `id_user`, `qid`, `date_answer`, `correct`, `id_me
 (34, 1, 0, '2019-01-05', 3, NULL),
 (35, 1, 0, '2019-01-07', 3, NULL),
 (36, 1, 0, '2019-01-08', 3, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis`
+--
+
+CREATE TABLE `jenis` (
+  `id` int(14) NOT NULL,
+  `jenisnm` varchar(24) NOT NULL COMMENT 'table ini berelasi ke master iuran',
+  `user_id` int(10) DEFAULT NULL,
+  `category` varchar(50) NOT NULL,
+  `create_at` datetime NOT NULL,
+  `update_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis`
+--
+
+INSERT INTO `jenis` (`id`, `jenisnm`, `user_id`, `category`, `create_at`, `update_at`) VALUES
+(1, 'Harian', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Bulanan', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Iuran', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'Sumbangan', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Tahunan', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'Pembangunan', NULL, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'Cash', NULL, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'Kredit', NULL, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'Transfer', NULL, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id` int(15) NOT NULL,
+  `komentar` text,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `user_id` int(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -460,6 +537,36 @@ INSERT INTO `question_inti` (`id_qinti`, `tanggal_qinti`, `waktu_qinti`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reg_kelengkapan`
+--
+
+CREATE TABLE `reg_kelengkapan` (
+  `id` int(15) NOT NULL,
+  `no_registrasi` varchar(40) NOT NULL,
+  `form_pendaftar` varchar(30) DEFAULT NULL,
+  `ktp` varchar(14) DEFAULT NULL,
+  `npwp` varchar(14) DEFAULT NULL,
+  `pas_foto` varchar(14) DEFAULT NULL,
+  `data_orang_tua` varchar(14) DEFAULT NULL,
+  `data_ujian` varchar(14) DEFAULT NULL,
+  `data_ijazah` varchar(14) DEFAULT NULL,
+  `data_nilai` varchar(14) DEFAULT NULL,
+  `data_sertifikat` varchar(14) DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT NULL,
+  `upatated_at` timestamp NULL DEFAULT NULL,
+  `created_by` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reg_kelengkapan`
+--
+
+INSERT INTO `reg_kelengkapan` (`id`, `no_registrasi`, `form_pendaftar`, `ktp`, `npwp`, `pas_foto`, `data_orang_tua`, `data_ujian`, `data_ijazah`, `data_nilai`, `data_sertifikat`, `create_at`, `upatated_at`, `created_by`) VALUES
+(1, 'A2312312', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slide`
 --
 
@@ -500,6 +607,33 @@ CREATE TABLE `sponsor` (
 
 INSERT INTO `sponsor` (`id_sponsor`, `nama_sponsor`, `alamat_sponsor`, `deskripsi_sponsor`, `email_sponsor`, `foto_sponsor`, `notelp_sponsor`, `long_sponsor`, `lat_sponsor`) VALUES
 (3, 'CV. ARP', 'Palembang, Sako, Palembang City, South Sumatra, Indonesia', '<p>tess sponsor</p>', 'arp@gmail.com', 'b0a58b3f20127c96da5e197210ce6500.jpg', '07123123', '104.7754307', '-2.9760735');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subkategori`
+--
+
+CREATE TABLE `subkategori` (
+  `id` int(14) NOT NULL,
+  `kategorinm` varchar(24) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `category` enum('0','1') NOT NULL,
+  `create_at` datetime NOT NULL,
+  `update_at` datetime NOT NULL,
+  `nilai` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subkategori`
+--
+
+INSERT INTO `subkategori` (`id`, `kategorinm`, `user_id`, `category`, `create_at`, `update_at`, `nilai`) VALUES
+(2, 'tabungan', 1, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '40000'),
+(3, 'sumbangan', 1, '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '5000'),
+(4, 'Bank Mandiri', 1, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(5, 'Bank BCA', 1, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(6, 'Bank BRI', 1, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -603,6 +737,12 @@ ALTER TABLE `dinas`
   ADD PRIMARY KEY (`id_dinas`);
 
 --
+-- Indexes for table `estimasi_iuran`
+--
+ALTER TABLE `estimasi_iuran`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
@@ -640,6 +780,18 @@ ALTER TABLE `jawaban`
   ADD PRIMARY KEY (`aid`);
 
 --
+-- Indexes for table `jenis`
+--
+ALTER TABLE `jenis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `marquee`
 --
 ALTER TABLE `marquee`
@@ -672,11 +824,23 @@ ALTER TABLE `profile`
   ADD KEY `id_profile` (`id_profile`);
 
 --
+-- Indexes for table `reg_kelengkapan`
+--
+ALTER TABLE `reg_kelengkapan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sponsor`
 --
 ALTER TABLE `sponsor`
   ADD PRIMARY KEY (`id_sponsor`),
   ADD UNIQUE KEY `id_sponsor` (`id_sponsor`);
+
+--
+-- Indexes for table `subkategori`
+--
+ALTER TABLE `subkategori`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -693,6 +857,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `detail_news`
   MODIFY `id_detailnews` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `estimasi_iuran`
+--
+ALTER TABLE `estimasi_iuran`
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `form_inputan`
@@ -719,6 +889,18 @@ ALTER TABLE `gallery`
   MODIFY `gid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `jenis`
+--
+ALTER TABLE `jenis`
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
@@ -737,10 +919,22 @@ ALTER TABLE `profile`
   MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `reg_kelengkapan`
+--
+ALTER TABLE `reg_kelengkapan`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sponsor`
 --
 ALTER TABLE `sponsor`
   MODIFY `id_sponsor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subkategori`
+--
+ALTER TABLE `subkategori`
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

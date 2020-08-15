@@ -76,119 +76,119 @@
                             <div class="form-group">
                                 <label for="varchar" class='control-label col-md-3'><b>Nilai<?php echo form_error('nilai') ?></b></label>
                                 <div class='col-md-9'>
-                                    <input type="text" class="form-control" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
+                                    <input type="number" class="form-control" name="nilai" id="nilai" placeholder="Nilai" value="<?php echo $nilai; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jenis1<?php echo form_error('jenis1') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jenis .1<?php echo form_error('jenis1') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jenis1" id="jenis1" placeholder="Jenis1" value="<?php echo $jenis1; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Ukuran1<?php echo form_error('ukuran1') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Ukuran .1<?php echo form_error('ukuran1') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="ukuran1" id="ukuran1" placeholder="Ukuran1" value="<?php echo $ukuran1; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jumlah1<?php echo form_error('jumlah1') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jumlah .1<?php echo form_error('jumlah1') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jumlah1" id="jumlah1" placeholder="Jumlah1" value="<?php echo $jumlah1; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Satuan1<?php echo form_error('satuan1') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Satuan .1<?php echo form_error('satuan1') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="satuan1" id="satuan1" placeholder="Satuan1" value="<?php echo $satuan1; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Keterangan1<?php echo form_error('keterangan1') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Keterangan .1<?php echo form_error('keterangan1') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="keterangan1" id="keterangan1" placeholder="Keterangan1" value="<?php echo $keterangan1; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jenis2<?php echo form_error('jenis2') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jenis .2<?php echo form_error('jenis2') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jenis2" id="jenis2" placeholder="Jenis2" value="<?php echo $jenis2; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Ukuran2<?php echo form_error('ukuran2') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Ukuran .2<?php echo form_error('ukuran2') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="ukuran2" id="ukuran2" placeholder="Ukuran2" value="<?php echo $ukuran2; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jumlah2<?php echo form_error('jumlah2') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jumlah .2<?php echo form_error('jumlah2') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jumlah2" id="jumlah2" placeholder="Jumlah2" value="<?php echo $jumlah2; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Satuan2<?php echo form_error('satuan2') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Satuan .2<?php echo form_error('satuan2') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="satuan2" id="satuan2" placeholder="Satuan2" value="<?php echo $satuan2; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Keterangan2<?php echo form_error('keterangan2') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Keterangan .2<?php echo form_error('keterangan2') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="keterangan2" id="keterangan2" placeholder="Keterangan2" value="<?php echo $keterangan2; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jenis3<?php echo form_error('jenis3') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jenis .3<?php echo form_error('jenis3') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jenis3" id="jenis3" placeholder="Jenis3" value="<?php echo $jenis3; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Ukuran3<?php echo form_error('ukuran3') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Ukuran .3<?php echo form_error('ukuran3') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="ukuran3" id="ukuran3" placeholder="Ukuran3" value="<?php echo $ukuran3; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jumlah3<?php echo form_error('jumlah3') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jumlah .3<?php echo form_error('jumlah3') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jumlah3" id="jumlah3" placeholder="Jumlah3" value="<?php echo $jumlah3; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Satuan3<?php echo form_error('satuan3') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Satuan .3<?php echo form_error('satuan3') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="satuan3" id="satuan3" placeholder="Satuan3" value="<?php echo $satuan3; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Keterangan3<?php echo form_error('keterangan3') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Keterangan .3<?php echo form_error('keterangan3') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="keterangan3" id="keterangan3" placeholder="Keterangan3" value="<?php echo $keterangan3; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jenis4<?php echo form_error('jenis4') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jenis .4<?php echo form_error('jenis4') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jenis4" id="jenis4" placeholder="Jenis4" value="<?php echo $jenis4; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Ukuran4<?php echo form_error('ukuran4') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Ukuran .4<?php echo form_error('ukuran4') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="ukuran4" id="ukuran4" placeholder="Ukuran4" value="<?php echo $ukuran4; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Jumlah4<?php echo form_error('jumlah4') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Jumlah .4<?php echo form_error('jumlah4') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="jumlah4" id="jumlah4" placeholder="Jumlah4" value="<?php echo $jumlah4; ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="varchar" class='control-label col-md-3'><b>Satuan4<?php echo form_error('satuan4') ?></b></label>
+                                <label for="varchar" class='control-label col-md-3'><b>Satuan .4<?php echo form_error('satuan4') ?></b></label>
                                 <div class='col-md-9'>
                                     <input type="text" class="form-control" name="satuan4" id="satuan4" placeholder="Satuan4" value="<?php echo $satuan4; ?>" />
                                 </div>
