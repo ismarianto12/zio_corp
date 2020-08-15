@@ -4,7 +4,7 @@
   you can visit my site in ismarianto.com
   for more complain anda more information.  
 */
-
+error_reporting(0);
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
@@ -12,6 +12,7 @@ class Form_inputan extends CI_Controller
 {
 	function __construct()
 	{
+
 		parent::__construct();
 		$this->load->model(['Form_inputan_model', 'm_user']);
 		$this->load->library('form_validation');
