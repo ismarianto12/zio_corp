@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2020 at 05:25 AM
+-- Generation Time: Aug 16, 2020 at 10:50 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -244,6 +244,122 @@ CREATE TABLE `form_inputan` (
 --
 
 INSERT INTO `form_inputan` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
+(6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
+(7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
+(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form_inputan_dua`
+--
+
+CREATE TABLE `form_inputan_dua` (
+  `id` int(14) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `nomor_pendaftaran` varchar(50) NOT NULL,
+  `area` varchar(50) NOT NULL,
+  `penerima` varchar(50) NOT NULL,
+  `alamatpen` varchar(50) NOT NULL,
+  `tanggal` date NOT NULL,
+  `transportasi_angkutan` varchar(50) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  `nilai` varchar(50) NOT NULL,
+  `jenis1` varchar(50) NOT NULL,
+  `ukuran1` varchar(50) NOT NULL,
+  `jumlah1` varchar(50) NOT NULL,
+  `satuan1` varchar(50) NOT NULL,
+  `keterangan1` varchar(50) NOT NULL,
+  `jenis2` varchar(50) NOT NULL,
+  `ukuran2` varchar(50) NOT NULL,
+  `jumlah2` varchar(50) NOT NULL,
+  `satuan2` varchar(50) NOT NULL,
+  `keterangan2` varchar(50) NOT NULL,
+  `jenis3` varchar(50) NOT NULL,
+  `ukuran3` varchar(50) NOT NULL,
+  `jumlah3` varchar(50) NOT NULL,
+  `satuan3` varchar(50) NOT NULL,
+  `keterangan3` varchar(50) NOT NULL,
+  `jenis4` varchar(50) NOT NULL,
+  `ukuran4` varchar(50) NOT NULL,
+  `jumlah4` varchar(50) NOT NULL,
+  `satuan4` varchar(50) NOT NULL,
+  `keterangan4` varchar(50) NOT NULL,
+  `jenis5` varchar(50) NOT NULL,
+  `ukuran5` varchar(50) NOT NULL,
+  `jumlah5` varchar(50) NOT NULL,
+  `satuan5` varchar(50) NOT NULL,
+  `keterangan5` varchar(50) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `form_inputan_dua`
+--
+
+INSERT INTO `form_inputan_dua` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
+(6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
+(7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
+(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form_inputan_tiga`
+--
+
+CREATE TABLE `form_inputan_tiga` (
+  `id` int(14) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `nomor_pendaftaran` varchar(50) NOT NULL,
+  `area` varchar(50) NOT NULL,
+  `penerima` varchar(50) NOT NULL,
+  `alamatpen` varchar(50) NOT NULL,
+  `tanggal` date NOT NULL,
+  `transportasi_angkutan` varchar(50) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  `nilai` varchar(50) NOT NULL,
+  `jenis1` varchar(50) NOT NULL,
+  `ukuran1` varchar(50) NOT NULL,
+  `jumlah1` varchar(50) NOT NULL,
+  `satuan1` varchar(50) NOT NULL,
+  `keterangan1` varchar(50) NOT NULL,
+  `jenis2` varchar(50) NOT NULL,
+  `ukuran2` varchar(50) NOT NULL,
+  `jumlah2` varchar(50) NOT NULL,
+  `satuan2` varchar(50) NOT NULL,
+  `keterangan2` varchar(50) NOT NULL,
+  `jenis3` varchar(50) NOT NULL,
+  `ukuran3` varchar(50) NOT NULL,
+  `jumlah3` varchar(50) NOT NULL,
+  `satuan3` varchar(50) NOT NULL,
+  `keterangan3` varchar(50) NOT NULL,
+  `jenis4` varchar(50) NOT NULL,
+  `ukuran4` varchar(50) NOT NULL,
+  `jumlah4` varchar(50) NOT NULL,
+  `satuan4` varchar(50) NOT NULL,
+  `keterangan4` varchar(50) NOT NULL,
+  `jenis5` varchar(50) NOT NULL,
+  `ukuran5` varchar(50) NOT NULL,
+  `jumlah5` varchar(50) NOT NULL,
+  `satuan5` varchar(50) NOT NULL,
+  `keterangan5` varchar(50) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `form_inputan_tiga`
+--
+
+INSERT INTO `form_inputan_tiga` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
 (6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
 (7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
 (8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
@@ -755,6 +871,18 @@ ALTER TABLE `form_inputan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `form_inputan_dua`
+--
+ALTER TABLE `form_inputan_dua`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `form_inputan_tiga`
+--
+ALTER TABLE `form_inputan_tiga`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `galeri_gambar`
 --
 ALTER TABLE `galeri_gambar`
@@ -868,6 +996,18 @@ ALTER TABLE `estimasi_iuran`
 -- AUTO_INCREMENT for table `form_inputan`
 --
 ALTER TABLE `form_inputan`
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `form_inputan_dua`
+--
+ALTER TABLE `form_inputan_dua`
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `form_inputan_tiga`
+--
+ALTER TABLE `form_inputan_tiga`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --

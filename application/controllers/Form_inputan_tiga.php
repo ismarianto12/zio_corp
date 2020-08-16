@@ -4,17 +4,16 @@
   you can visit my site in ismarianto.com
   for more complain anda more information.  
 */
-error_reporting(0);
+
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
-class Form_inputan extends CI_Controller
+class Form_inputan_tiga extends CI_Controller
 {
 	function __construct()
 	{
-
 		parent::__construct();
-		$this->load->model(['Form_inputan_model', 'm_user']);
+		$this->load->model(['Form_inputan_tiga_model', 'm_user']);
 		$this->load->library('form_validation');
 		$this->load->library('datatables');
 	}
@@ -24,9 +23,9 @@ class Form_inputan extends CI_Controller
 		$id_user         = $this->session->id_user;
 		$login           = $this->session->login;
 		$x['rs_user']    = $this->m_user->get($id_user);
-		$x['page_title'] = 'Data : Form inputan';
+		$x['page_title'] = 'Data : Form inputan Tiga';
 		if ($id_user != '' || $login != '') {
-			$this->template->load('template', 'form_inputan/form_inputan_list', $x);
+			$this->template->load('template', 'form_inputan_tiga/form_inputan_list', $x);
 		} else {
 			show_404();
 			die();
@@ -35,12 +34,13 @@ class Form_inputan extends CI_Controller
 
 	public function json()
 	{
+
 		$id_user = $this->session->id_user;
 		$login   = $this->session->login;
 
 		if ($id_user != '' || $login != '') {
 			header('Content-Type: application/json');
-			echo $this->Form_inputan_model->json();
+			echo $this->Form_inputan_tiga_model->json();
 		} else {
 			show_404();
 			die();
@@ -49,8 +49,7 @@ class Form_inputan extends CI_Controller
 
 	public function detail($id)
 	{
-		error_reporting(0);
-		$row = $this->Form_inputan_model->get_by_id($id);
+		$row = $this->Form_inputan_tiga_model->get_by_id($id);
 		if ($row) {
 			$data = array(
 				'id' => $row->id,
@@ -93,32 +92,21 @@ class Form_inputan extends CI_Controller
 				'user_id' => $row->user_id,
 				'date_created' => $row->date_created,
 				'date_updated' => $row->date_updated,
-
-				'page_title' => 'Detail DATA FORM INPUTAN ' . ucfirst($row->nama),
+				'page_title' => 'Detail :  FORM_INPUTAN_TIGA',
 			);
-			$this->template->load('template', 'form_inputan/form_inputan_read', $data);
+			$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_read', $data);
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
-			redirect(site_url('form_inputan'));
+			redirect(site_url('form_inputan_tiga'));
 		}
 	}
 
 	public function tambah()
 	{
-		$id_user            = $this->session->id_user;
-		$login              = $this->session->login;
-		$x['rs_user']       = $this->m_user->get($id_user);
-		$x['page_title']    = 'Data : Form inputan';
-
-		if ($id_user != '' || $login != '') {
-			$x['rs_user']   = $this->m_user->get($id_user);
-		} else {
-			error_reporting(0);
-		}
 		$data = array(
-			'page_title' => 'Tambah Form inputan',
+			'page_title' => 'Tambah Form inputan tiga',
 			'button' => 'Create',
-			'action' => site_url('form_inputan/tambah_data'),
+			'action' => site_url('form_inputan_tiga/tambah_data'),
 			'id' => set_value('id'),
 			'nama' => set_value('nama'),
 			'email' => set_value('email'),
@@ -160,15 +148,15 @@ class Form_inputan extends CI_Controller
 			'date_created' => set_value('date_created'),
 			'date_updated' => set_value('date_updated'),
 		);
-		$this->template->load('template', 'form_inputan/form_inputan_form', array_merge($data, $x));
+		$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_form', $data);
 	}
 
 	public function tambah_data()
 	{
 		$this->_rules();
+
 		if ($this->form_validation->run() == FALSE) {
-			//$this->tambah();
-			redirect($this->input->post('redirect'));
+			$this->tambah();
 		} else {
 			$data = array(
 				'nama' => $this->input->post('nama', TRUE),
@@ -212,20 +200,11 @@ class Form_inputan extends CI_Controller
 				'date_updated' => $this->input->post('date_updated', TRUE),
 			);
 
-			$this->Form_inputan_model->insert($data);
+			$this->Form_inputan_tiga_model->insert($data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
-			$id = $this->selectmax_forminputan();
-			redirect($this->input->post('redirect') . '/detail/' . $id);
+			redirect(site_url('form_inputan_tiga'));
 		}
 	}
-	private function selectmax_forminputan()
-	{
-		$data = $this->db->select_max('id')
-			->from('form_inputan')
-			->get();
-		return $data->row()->id;
-	}
-
 
 	public function edit($id)
 	{
@@ -236,13 +215,13 @@ class Form_inputan extends CI_Controller
 
 		if ($id_user != '' || $login != '') {
 
-			$row = $this->Form_inputan_model->get_by_id($id);
+			$row = $this->Form_inputan_tiga_model->get_by_id($id);
 
 			if ($row) {
 				$data = array(
-					'page_title' => 'Data FORM_INPUTAN',
+					'page_title' => 'Data FORM_INPUTAN_TIGA',
 					'button' => 'Update',
-					'action' => site_url('form_inputan/edit_data'),
+					'action' => site_url('form_inputan_tiga/edit_data'),
 					'id' => set_value('id', $row->id),
 					'nama' => set_value('nama', $row->nama),
 					'email' => set_value('email', $row->email),
@@ -284,20 +263,16 @@ class Form_inputan extends CI_Controller
 					'date_created' => set_value('date_created', $row->date_created),
 					'date_updated' => set_value('date_updated', $row->date_updated),
 				);
-				$this->template->load('template', 'form_inputan/form_inputan_form', array_merge($data, $x));
+				$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_form', $data);
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-info fade-in">Data Tidak Di Temukan.</div>');
-				redirect(site_url('form_inputan'));
+				redirect(site_url('form_inputan_tiga'));
 			}
-		} else {
-			show_404();
-			die();
 		}
 	}
 
 	public function edit_data()
 	{
-
 		$id_user = $this->session->id_user;
 		$login   = $this->session->login;
 
@@ -350,27 +325,24 @@ class Form_inputan extends CI_Controller
 					'date_updated' => $this->input->post('date_updated', TRUE),
 				);
 
-				$this->Form_inputan_model->update($this->input->post('id', TRUE), $data);
+				$this->Form_inputan_tiga_model->update($this->input->post('id', TRUE), $data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Edit Data Berhasil.</div>');
-				redirect(site_url('form_inputan'));
+				redirect(site_url('form_inputan_tiga'));
 			}
-		} else {
-			show_404();
-			die();
 		}
 	}
 
 	public function hapus($id)
 	{
-		$row = $this->Form_inputan_model->get_by_id($id);
+		$row = $this->Form_inputan_tiga_model->get_by_id($id);
 
 		if ($row) {
-			$this->Form_inputan_model->delete($id);
+			$this->Form_inputan_tiga_model->delete($id);
 			$this->session->set_flashdata('message', '<div class="alert alert-danger fade-in"><i class="fa fa-check"></i>Data Berhasil Di Hapus</div>');
-			redirect(site_url('form_inputan'));
+			redirect(site_url('form_inputan_tiga'));
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Ops Something Went Wrong Please Contact Administrator.</div>');
-			redirect(site_url('form_inputan'));
+			redirect(site_url('form_inputan_tiga'));
 		}
 	}
 
@@ -412,9 +384,139 @@ class Form_inputan extends CI_Controller
 		$this->form_validation->set_rules('jumlah5', 'jumlah5', 'trim|required');
 		$this->form_validation->set_rules('satuan5', 'satuan5', 'trim|required');
 		$this->form_validation->set_rules('keterangan5', 'keterangan5', 'trim|required');
-		$this->form_validation->set_rules('redirect', 'redirect', 'required');
+		// $this->form_validation->set_rules('user_id', 'user id', 'trim|required');
+		// $this->form_validation->set_rules('date_created', 'date created', 'trim|required');
+		// $this->form_validation->set_rules('date_updated', 'date updated', 'trim|required');
 
 		$this->form_validation->set_rules('id', 'id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+	}
+
+	public function excel()
+	{
+		$this->load->helper('exportexcel');
+		$namaFile = "form_inputan_tiga.xls";
+		$page_title = "form_inputan_tiga";
+		$tablehead = 0;
+		$tablebody = 1;
+		$nourut = 1;
+		//penulisan header
+		header("Pragma: public");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+		header("Content-Type: application/force-download");
+		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/download");
+		header("Content-Disposition: attachment;filename=" . $namaFile . "");
+		header("Content-Transfer-Encoding: binary ");
+
+		xlsBOF();
+
+		$kolomhead = 0;
+		xlsWriteLabel($tablehead, $kolomhead++, "No");
+		xlsWriteLabel($tablehead, $kolomhead++, "Nama");
+		xlsWriteLabel($tablehead, $kolomhead++, "Email");
+		xlsWriteLabel($tablehead, $kolomhead++, "Alamat");
+		xlsWriteLabel($tablehead, $kolomhead++, "Nomor Pendaftaran");
+		xlsWriteLabel($tablehead, $kolomhead++, "Area");
+		xlsWriteLabel($tablehead, $kolomhead++, "Penerima");
+		xlsWriteLabel($tablehead, $kolomhead++, "Alamatpen");
+		xlsWriteLabel($tablehead, $kolomhead++, "Tanggal");
+		xlsWriteLabel($tablehead, $kolomhead++, "Transportasi Angkutan");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan");
+		xlsWriteLabel($tablehead, $kolomhead++, "Nilai");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jenis1");
+		xlsWriteLabel($tablehead, $kolomhead++, "Ukuran1");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah1");
+		xlsWriteLabel($tablehead, $kolomhead++, "Satuan1");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan1");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jenis2");
+		xlsWriteLabel($tablehead, $kolomhead++, "Ukuran2");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah2");
+		xlsWriteLabel($tablehead, $kolomhead++, "Satuan2");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan2");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jenis3");
+		xlsWriteLabel($tablehead, $kolomhead++, "Ukuran3");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah3");
+		xlsWriteLabel($tablehead, $kolomhead++, "Satuan3");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan3");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jenis4");
+		xlsWriteLabel($tablehead, $kolomhead++, "Ukuran4");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah4");
+		xlsWriteLabel($tablehead, $kolomhead++, "Satuan4");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan4");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jenis5");
+		xlsWriteLabel($tablehead, $kolomhead++, "Ukuran5");
+		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah5");
+		xlsWriteLabel($tablehead, $kolomhead++, "Satuan5");
+		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan5");
+		xlsWriteLabel($tablehead, $kolomhead++, "User Id");
+		xlsWriteLabel($tablehead, $kolomhead++, "Date Created");
+		xlsWriteLabel($tablehead, $kolomhead++, "Date Updated");
+
+		foreach ($this->Form_inputan_tiga_model->get_all() as $data) {
+			$kolombody = 0;
+
+			//ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+			xlsWriteNumber($tablebody, $kolombody++, $nourut);
+			xlsWriteLabel($tablebody, $kolombody++, $data->nama);
+			xlsWriteLabel($tablebody, $kolombody++, $data->email);
+			xlsWriteLabel($tablebody, $kolombody++, $data->alamat);
+			xlsWriteLabel($tablebody, $kolombody++, $data->nomor_pendaftaran);
+			xlsWriteLabel($tablebody, $kolombody++, $data->area);
+			xlsWriteLabel($tablebody, $kolombody++, $data->penerima);
+			xlsWriteLabel($tablebody, $kolombody++, $data->alamatpen);
+			xlsWriteLabel($tablebody, $kolombody++, $data->tanggal);
+			xlsWriteLabel($tablebody, $kolombody++, $data->transportasi_angkutan);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan);
+			xlsWriteLabel($tablebody, $kolombody++, $data->nilai);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jenis1);
+			xlsWriteLabel($tablebody, $kolombody++, $data->ukuran1);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah1);
+			xlsWriteLabel($tablebody, $kolombody++, $data->satuan1);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan1);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jenis2);
+			xlsWriteLabel($tablebody, $kolombody++, $data->ukuran2);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah2);
+			xlsWriteLabel($tablebody, $kolombody++, $data->satuan2);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan2);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jenis3);
+			xlsWriteLabel($tablebody, $kolombody++, $data->ukuran3);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah3);
+			xlsWriteLabel($tablebody, $kolombody++, $data->satuan3);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan3);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jenis4);
+			xlsWriteLabel($tablebody, $kolombody++, $data->ukuran4);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah4);
+			xlsWriteLabel($tablebody, $kolombody++, $data->satuan4);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan4);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jenis5);
+			xlsWriteLabel($tablebody, $kolombody++, $data->ukuran5);
+			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah5);
+			xlsWriteLabel($tablebody, $kolombody++, $data->satuan5);
+			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan5);
+			xlsWriteNumber($tablebody, $kolombody++, $data->user_id);
+			xlsWriteLabel($tablebody, $kolombody++, $data->date_created);
+			xlsWriteLabel($tablebody, $kolombody++, $data->date_updated);
+
+			$tablebody++;
+			$nourut++;
+		}
+
+		xlsEOF();
+		exit();
+	}
+
+	public function word()
+	{
+		header("Content-type: application/vnd.ms-word");
+		header("Content-Disposition: attachment;Filename=form_inputan_tiga.doc");
+
+		$data = array(
+			'form_inputan_tiga_data' => $this->Form_inputan_tiga_model->get_all(),
+			'start' => 0
+		);
+
+		$this->load->view('template', 'form_inputan_tiga/form_inputan_tiga_doc', $data);
 	}
 }

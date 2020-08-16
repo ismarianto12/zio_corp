@@ -51,13 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'admin';
 $route['form1'] = 'form_inputan/tambah'; 
-$route['form2'] = 'form_inputan/tambah'; 
-$route['form3'] = 'form_inputan/tambah';
+$route['form2'] = 'form_inputan_dua/tambah'; 
+$route['form3'] = 'form_inputan_tiga/tambah';
 
 $route['form1/detail/(:any)'] = 'form_inputan/detail/$1';
-$route['form2/detail/(:any)'] = 'form_inputan/detail/$1';
-$route['form3/detail/(:any)'] = 'form_inputan/detail/$1';
-
+$route['form2/detail/(:any)'] = 'form_inputan_dua/detail/$1';
+$route['form3/detail/(:any)'] = 'form_inputan_tiga/detail/$1'; 
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

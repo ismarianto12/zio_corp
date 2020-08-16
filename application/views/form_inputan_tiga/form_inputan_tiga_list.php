@@ -1,4 +1,4 @@
- <link href="<?= base_url('assets/css/sweet-alert.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('assets/css/sweet-alert.css') ?>" rel="stylesheet" />
  <script type="text/javascript" src="<?= base_url('assets/js/sweet-alert.js') ?>"></script>
  <section class="content">
      <div class="row clearfix">
@@ -13,26 +13,25 @@
                              <?= $this->session->flashdata('message') ?>
                              <div class='white-box'>
                                  <h3 class='box-title m-b-0'></h3>
-                                 <?php echo anchor(site_url('estimasi_iuran/tambah'), 'Tambah Data', 'class="btn btn-primary "'); ?>
-                                 <?php echo anchor(site_url('estimasi_iuran/excel'), '<i class=\'fa fa-file-excel-o\'></i>Excel', 'class="btn btn-info"'); ?>
-                                 <?php echo anchor(site_url('estimasi_iuran/word'), '<i class=\'fa fa-file-word-o\'></i>Word', 'class="btn btn-danger"'); ?>
+                                 <?php echo anchor(site_url('form_inputan_dua/tambah'), 'Tambah Data', 'class="btn btn-primary "'); ?>
+                                 <?php echo anchor(site_url('form_inputan_dua/excel'), '<i class=\'fa fa-file-excel-o\'></i>Excel', 'class="btn btn-info btn-xs"'); ?>
+                                 <?php echo anchor(site_url('form_inputan_dua/word'), '<i class=\'fa fa-file-word-o\'></i>Word', 'class="btn btn-danger btn-xs"'); ?>
 
                                  <br /><br />
                                  <table class="table" id="datatables">
                                      <thead>
                                          <tr>
                                              <th width="80px">No</th>
-                                             <th>Jenis </th>
-                                             <th>Subkategori</th>
-                                             <th>Nilai</th>
-                                             <th>B. Jasa Admin 1</th>
-                                             <th>C. Jasa Admin 2</th>
-                                             <th>D. Jasa Admin 3</th>
-                                             <th>Jasa Admin</th>
-                                             <th>Quantity</th>
-                                             <th>Tot Bayar</th>
-                                             <th>Update At</th>
-                                             <th>Creaate At</th>
+                                             <th>Nama</th>
+                                             <th>Email</th>
+                                             <th>Alamat</th>
+                                             <th>Nomor Pendaftaran</th>
+                                             <th>Area</th>
+                                             <th>Penerima</th>
+                                             <th>Alamatpen</th>
+                                             <th>Tanggal</th>
+                                             <th>Transportasi Angkutan</th>
+                                             <th>Keterangan</th>
                                              <th width="200px">Action</th>
                                          </tr>
                                      </thead>
@@ -70,37 +69,33 @@
                                              processing: true,
                                              serverSide: true,
                                              ajax: {
-                                                 "url": "estimasi_iuran/json",
+                                                 "url": "<?= base_url('form_inputan_dua/json') ?>",
                                                  "type": "POST"
                                              },
                                              columns: [{
                                                      "data": "id",
                                                      "orderable": false
                                                  }, {
-                                                     "data": "jenisnm"
+                                                     "data": "nama"
                                                  }, {
-                                                     "data": "kategorinm"
+                                                     "data": "email"
                                                  }, {
-                                                     "data": "estimasi_nilai"
+                                                     "data": "alamat"
                                                  }, {
-                                                     "data": "jhitungadmin1"
+                                                     "data": "nomor_pendaftaran"
                                                  }, {
-                                                     "data": "jhitungadmin2"
+                                                     "data": "area"
                                                  }, {
-                                                     "data": "jhitungadmin3"
+                                                     "data": "penerima"
                                                  }, {
-                                                     "data": "jpemadmin"
-                                                 },
-                                                 {
-                                                     "data": "quantity"
+                                                     "data": "alamatpen"
                                                  }, {
-                                                     "data": "tot_bayar"
-                                                 },
-                                                 {
-                                                     "data": "update_at"
+                                                     "data": "tanggal"
                                                  }, {
-                                                     "data": "creaate_at"
-                                                 },
+                                                     "data": "transportasi_angkutan"
+                                                 }, {
+                                                     "data": "keterangan"
+                                                 }, 
                                                  {
                                                      "data": "action",
                                                      "orderable": false,
@@ -132,7 +127,7 @@
                                              },
                                              function() {
                                                  swal('Hapus Data', 'Data Berhasil Di Hapus', 'success');
-                                                 window.location.href = '<?= base_url('estimasi_iuran/hapus/') ?>' + n;
+                                                 window.location.href = '<?= base_url('form_inputan_dua/hapus/') ?>' + n;
                                              });
                                      }
                                  </script>

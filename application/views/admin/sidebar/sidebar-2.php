@@ -6,7 +6,7 @@ $v_role = (isset($v_role)) ?  $v_role : '';
 
 $nama = isset($rs_user['nama']);
 $jabatan =  isset($rs_user['jabatan']) ? '' : error_reporting(0);
- //$vrole='admin';
+//$vrole='admin';
 
 if ($this->session->userdata('id_role') == '0') {
     $vrole = 'admin2';
@@ -95,10 +95,10 @@ if ($this->session->userdata('id_role') == '0') {
                     </a>
                 </li>
                 <?php //} 
-                    ?>
+                ?>
 
                 <?php  // if($this->session->userdata('id_role') == '0') { 
-                    ?>
+                ?>
                 <li>
                     <a href="<?php echo site_url('' . $vrole . '/slidefoto'); ?>">
                         <i class="material-icons col-light-blue">description</i>
@@ -112,6 +112,33 @@ if ($this->session->userdata('id_role') == '0') {
                         <span>Form Inputan</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">add_task</i>
+                        <span>Master data form Inputan</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<?= base_url('form_inputan') ?>">    <i class="material-icons">dns</i>
+                     Form Inputan 1 </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('form_inputan_dua') ?>">   <i class="material-icons">eco</i>
+                     Form Inputan 2</a>
+                        </li>
+
+                        <li>
+                            <a href="<?= base_url('form_inputan_tiga') ?>">   <i class="material-icons">assignment</i>
+                     Form Inputan 3</a>
+                        </li>
+                        <!-- <li>
+                                <a href="pages/forms/editors.html">Editors</a>
+                            </li> -->
+                    </ul>
+                </li>
+
+
 
                 <li>
                     <a href="<?php echo site_url('reg_kelengkapan'); ?>">
