@@ -4,7 +4,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="card">
 					<div class="header">
-						<h2><i class="material-icons col-light-blue">mms</i><?= ucfirst(strtolower($page_title)) ?></h2>
+						<h2><i class="material-icons col-light-blue">mms</i>Detail : <?php echo $nama; ?></h2>
 					</div>
 					<center>
 					<div class="body" style="overflow: auto;">

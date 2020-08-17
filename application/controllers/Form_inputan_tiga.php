@@ -203,7 +203,7 @@ class Form_inputan_tiga extends CI_Controller
 			$this->Form_inputan_tiga_model->insert($data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
 			$id = $this->selectmax_forminputan();
-			redirect($this->input->post('redirect') . '/detail/' . $id);	
+			redirect(base_url(). '/form_inputan_tiga/detail/' . $id);	
 		}
 	}
 

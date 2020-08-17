@@ -230,15 +230,6 @@ class Reg_kelengkapan extends CI_Controller
     public function _rules()
     {
         $this->form_validation->set_rules('no_registrasi', 'no registrasi', 'trim|required');
-        $this->form_validation->set_rules('form_pendaftar', 'form pendaftar', 'trim|required');
-        $this->form_validation->set_rules('ktp', 'ktp', 'trim|required');
-        $this->form_validation->set_rules('npwp', 'npwp', 'trim|required');
-        $this->form_validation->set_rules('pas_foto', 'pas foto', 'trim|required');
-        $this->form_validation->set_rules('data_orang_tua', 'data orang tua', 'trim|required');
-        $this->form_validation->set_rules('data_ujian', 'data ujian', 'trim|required');
-        $this->form_validation->set_rules('data_ijazah', 'data ijazah', 'trim|required');
-        $this->form_validation->set_rules('data_nilai', 'data nilai', 'trim|required');
-        $this->form_validation->set_rules('data_sertifikat', 'data sertifikat', 'trim|required');
 
         $this->form_validation->set_rules('id', 'id', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

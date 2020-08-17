@@ -218,9 +218,8 @@ class Form_inputan_dua extends CI_Controller
 
 			$this->Form_inputan_dua_model->insert($data);
 		 	$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
-			$id = $this->selectmax_forminputan();
-			redirect($this->input->post('redirect') . '/detail/' . $id);
-		
+			$id = $this->selectmax_forminputan(); 
+			redirect(base_url(). '/form_inputan_dua/detail/' . $id);	
 		}
 	}
 	private function selectmax_forminputan()
