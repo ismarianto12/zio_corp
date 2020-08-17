@@ -1,3 +1,9 @@
+<?php
+if ($get == 'yes') { ?> 
+<link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+<?php
+}
+?> 
 <section class="content">
 	<div class="">
 		<div class="row clearfix">
@@ -153,10 +159,10 @@
 								<tr>
 									<td>Keterangan5</td>
 									<td><?php echo $keterangan5; ?></td>
-								</tr> 
-								 
+								</tr>
+
 								<tr>
-									<td><a href="<?php echo site_url('form_inputan') ?>" class="btn btn-default"><i class='fa fa-print'></i>Print</a></td>
+									<td><a href="<?php echo site_url('form_inputan/detail/'.$id.'/?print=yes') ?>" class="btn btn-default"><i class='fa fa-print'></i>Print</a></td>
 									<td><a href="<?php echo site_url('form_inputan') ?>" class="btn btn-default"><i class='fa fa-home'></i>Back To Home</a></td>
 								</tr>
 							</table>

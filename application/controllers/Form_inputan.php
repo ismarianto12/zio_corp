@@ -48,12 +48,14 @@ class Form_inputan extends CI_Controller
 
 	public function detail($id)
 	{
-		error_reporting(0);
+		error_reporting(0); 
+		$print = isset($_GET['print']) ? $_GET['print'] : '';
 		$row = $this->Form_inputan_model->get_by_id($id);
 		if ($row) {
 			$data = array(
 				'id' => $row->id,
 				'nama' => $row->nama,
+				'get' => $print,
 				'email' => $row->email,
 				'alamat' => $row->alamat,
 				'nomor_pendaftaran' => $row->nomor_pendaftaran,
@@ -95,7 +97,11 @@ class Form_inputan extends CI_Controller
 
 				'page_title' => 'Detail DATA FORM INPUTAN ' . ucfirst($row->nama),
 			);
-			$this->template->load('template', 'form_inputan/form_inputan_read', $data);
+			if ($print == 'yes') {
+				$this->load->view('form_inputan/form_inputan_read', $data);
+			} else {
+				$this->template->load('template', 'form_inputan/form_inputan_read', $data);
+			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
 			redirect(site_url('form_inputan'));

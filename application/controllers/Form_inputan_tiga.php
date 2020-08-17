@@ -49,9 +49,11 @@ class Form_inputan_tiga extends CI_Controller
 
 	public function detail($id)
 	{
-		$row = $this->Form_inputan_tiga_model->get_by_id($id);
+		$row   = $this->Form_inputan_tiga_model->get_by_id($id);
+		$print = isset($_GET['print']) ? $_GET['print'] : '';
 		if ($row) {
 			$data = array(
+				'get'=>$print,
 				'id' => $row->id,
 				'nama' => $row->nama,
 				'email' => $row->email,
@@ -94,7 +96,12 @@ class Form_inputan_tiga extends CI_Controller
 				'date_updated' => $row->date_updated,
 				'page_title' => 'Detail :  FORM_INPUTAN_TIGA',
 			);
-			$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_read', $data);
+
+			if ($print == 'yes') {
+				$this->load->view('form_inputan_tiga/form_inputan_tiga_read', $data);
+			} else {
+				$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_read', $data);
+			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
 			redirect(site_url('form_inputan_tiga'));
@@ -203,7 +210,7 @@ class Form_inputan_tiga extends CI_Controller
 			$this->Form_inputan_tiga_model->insert($data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
 			$id = $this->selectmax_forminputan();
-			redirect(base_url(). '/form_inputan_tiga/detail/' . $id);	
+			redirect(base_url() . '/form_inputan_tiga/detail/' . $id);
 		}
 	}
 
@@ -213,7 +220,7 @@ class Form_inputan_tiga extends CI_Controller
 			->from('form_inputan_tiga')
 			->get();
 		return $data->row()->id;
-	} 
+	}
 
 	public function edit($id)
 	{

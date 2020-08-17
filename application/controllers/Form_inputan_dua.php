@@ -53,6 +53,7 @@ class Form_inputan_dua extends CI_Controller
 	public function detail($id)
 	{
 		error_reporting(0);
+		$print = isset($_GET['print']) ? $_GET['print'] : '';
 		$row = $this->Form_inputan_dua_model->get_by_id($id);
 		if ($row) {
 			$data = array(
@@ -96,10 +97,14 @@ class Form_inputan_dua extends CI_Controller
 				'user_id' => $row->user_id,
 				'date_created' => $row->date_created,
 				'date_updated' => $row->date_updated,
-
+				'get'=>$print,
 				'page_title' => 'Detail :  Form Inputan Dua',
-			);
-			$this->template->load('template', 'form_inputan_dua/form_inputan_dua_read', $data);
+			); 
+	 		if ($print == 'yes') {
+				$this->load->view('form_inputan_dua/form_inputan_dua_read', $data);
+			} else {
+				$this->template->load('template', 'form_inputan_dua/form_inputan_dua_read', $data);
+			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-warniing fade-in">Data Tidak Di Temukan.</div>');
 			redirect(site_url('form_inputan_dua'));
