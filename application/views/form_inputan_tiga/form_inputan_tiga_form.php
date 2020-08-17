@@ -24,7 +24,7 @@
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>Email<?php echo form_error('email') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -53,15 +53,15 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="varchar" class='control-label col-md-3'><b>Alamatpen<?php echo form_error('alamatpen') ?></b></label>
+                                            <label for="varchar" class='control-label col-md-3'><b>Alamat penerima<?php echo form_error('alamatpen') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="alamatpen" id="alamatpen" placeholder="Alamatpen" value="<?php echo $alamatpen; ?>" />
+                                                <input type="text" class="form-control" name="alamatpen" id="alamatpen" placeholder="Alamat penerima" value="<?php echo $alamatpen; ?>" />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="date" class='control-label col-md-3'><b>Tanggal<?php echo form_error('tanggal') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="tanggal" id="tanggal" placeholder="Tanggal" value="<?php echo $tanggal; ?>" />
+                                                       <input type="date" class="form-control" name="tanggal" id="tanggal" placeholder="Tanggal" value="<?php echo $tanggal; ?>" />
                                             </div>
                                         </div>
                                         <div class="form-group">

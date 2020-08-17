@@ -30,7 +30,7 @@ class Form_inputan_dua extends CI_Controller
 		if ($id_user != '' || $login != '') {
 			$this->template->load('template', 'form_inputan_dua/form_inputan_dua_list', $x);
 		} else {
-			show_404();
+			redirect(base_url('/'));
 			die();
 		}
 	}
@@ -217,18 +217,19 @@ class Form_inputan_dua extends CI_Controller
 			);
 
 			$this->Form_inputan_dua_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
-			redirect(site_url('form_inputan_dua'));
+		 	$this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
+			$id = $this->selectmax_forminputan();
+			redirect($this->input->post('redirect') . '/detail/' . $id);
+		
 		}
 	}
 	private function selectmax_forminputan()
 	{
 		$data = $this->db->select_max('id')
-			->from('form_inputan')
+			->from('form_inputan_dua')
 			->get();
 		return $data->row()->id;
 	}
-
 
 	public function edit($id)
 	{
@@ -449,7 +450,7 @@ class Form_inputan_dua extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Nomor Pendaftaran");
 		xlsWriteLabel($tablehead, $kolomhead++, "Area");
 		xlsWriteLabel($tablehead, $kolomhead++, "Penerima");
-		xlsWriteLabel($tablehead, $kolomhead++, "Alamatpen");
+		xlsWriteLabel($tablehead, $kolomhead++, "Alamat penerima");
 		xlsWriteLabel($tablehead, $kolomhead++, "Tanggal");
 		xlsWriteLabel($tablehead, $kolomhead++, "Transportasi Angkutan");
 		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan");

@@ -35,7 +35,7 @@
 									<td><?php echo $penerima; ?></td>
 								</tr>
 								<tr>
-									<td>Alamatpen</td>
+									<td>Alamat penerima</td>
 									<td><?php echo $alamatpen; ?></td>
 								</tr>
 								<tr>
@@ -153,21 +153,10 @@
 								<tr>
 									<td>Keterangan5</td>
 									<td><?php echo $keterangan5; ?></td>
-								</tr>
+								</tr> 
+								 
 								<tr>
-									<td>User Id</td>
-									<td><?php echo $user_id; ?></td>
-								</tr>
-								<tr>
-									<td>Date Created</td>
-									<td><?php echo $date_created; ?></td>
-								</tr>
-								<tr>
-									<td>Date Updated</td>
-									<td><?php echo $date_updated; ?></td>
-								</tr>
-								<tr>
-									<td></td>
+									<td><a href="<?php echo site_url('form_inputan') ?>" class="btn btn-default"><i class='fa fa-print'></i>Print</a></td>
 									<td><a href="<?php echo site_url('form_inputan') ?>" class="btn btn-default"><i class='fa fa-home'></i>Back To Home</a></td>
 								</tr>
 							</table>

@@ -28,14 +28,13 @@
                                             <th>Nomor Pendaftaran</th>
                                             <th>Area</th>
                                             <th>Penerima</th>
-                                            <th>Alamatpen</th>
+                                            <th>Alamat penerima</th>
                                             <th>Tanggal</th>
                                             <th>Transportasi Angkutan</th>
                                             <th>Keterangan</th>
                                             <th width="200px">Action</th>
                                         </tr>
-                                    </thead>
-
+                                    </thead> 
                                 </table>
 
                                 <script type="text/javascript">
