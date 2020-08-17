@@ -60,15 +60,15 @@
 									<td><?php echo $jenis1; ?></td>
 								</tr>
 								<tr>
-									<td>Ukuran1</td>
+									<td>Ukuran 1</td>
 									<td><?php echo $ukuran1; ?></td>
 								</tr>
 								<tr>
-									<td>Jumlah1</td>
+									<td>Jumlah 1</td>
 									<td><?php echo $jumlah1; ?></td>
 								</tr>
 								<tr>
-									<td>Satuan1</td>
+									<td>Satuan 1</td>
 									<td><?php echo $satuan1; ?></td>
 								</tr>
 								<tr>

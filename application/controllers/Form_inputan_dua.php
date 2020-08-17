@@ -479,11 +479,7 @@ class Form_inputan_dua extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "Jumlah5");
 		xlsWriteLabel($tablehead, $kolomhead++, "Satuan5");
 		xlsWriteLabel($tablehead, $kolomhead++, "Keterangan5");
-		xlsWriteLabel($tablehead, $kolomhead++, "User Id");
-		xlsWriteLabel($tablehead, $kolomhead++, "Date Created");
-		xlsWriteLabel($tablehead, $kolomhead++, "Date Updated");
-
-		foreach ($this->Form_inputan_dua_model->get_all() as $data) {
+  		foreach ($this->Form_inputan_dua_model->get_all() as $data) {
 			$kolombody = 0;
 
 			//ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
@@ -524,10 +520,7 @@ class Form_inputan_dua extends CI_Controller
 			xlsWriteLabel($tablebody, $kolombody++, $data->jumlah5);
 			xlsWriteLabel($tablebody, $kolombody++, $data->satuan5);
 			xlsWriteLabel($tablebody, $kolombody++, $data->keterangan5);
-			xlsWriteNumber($tablebody, $kolombody++, $data->user_id);
-			xlsWriteLabel($tablebody, $kolombody++, $data->date_created);
-			xlsWriteLabel($tablebody, $kolombody++, $data->date_updated);
-
+ 
 			$tablebody++;
 			$nourut++;
 		}

@@ -28,7 +28,7 @@ class Form_inputan extends CI_Controller
 		if ($id_user != '' || $login != '') {
 			$this->template->load('template', 'form_inputan/form_inputan_list', $x);
 		} else {
-			redirect(base_url()); 
+			redirect(base_url());
 		}
 	}
 
@@ -223,7 +223,7 @@ class Form_inputan extends CI_Controller
 			->from('form_inputan')
 			->get();
 		return $data->row()->id;
-	} 
+	}
 
 	public function edit($id)
 	{
