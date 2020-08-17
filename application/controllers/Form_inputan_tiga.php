@@ -25,7 +25,7 @@ class Form_inputan_tiga extends CI_Controller
 		$x['rs_user']    = $this->m_user->get($id_user);
 		$x['page_title'] = 'Data : Form inputan Tiga';
 		if ($id_user != '' || $login != '') {
-			$this->template->load('template', 'form_inputan_tiga/form_inputan_list', $x);
+			$this->template->load('template', 'form_inputan_tiga/form_inputan_tiga_list', $x);
 		} else {
 			show_404();
 			die();

@@ -28,7 +28,7 @@ class Form_inputan_dua extends CI_Controller
 		$x['rs_user']    = $this->m_user->get($id_user);
 		$x['page_title'] = 'Data : Form inputan Dua';
 		if ($id_user != '' || $login != '') {
-			$this->template->load('template', 'form_inputan_dua/form_inputan_list', $x);
+			$this->template->load('template', 'form_inputan_dua/form_inputan_dua_list', $x);
 		} else {
 			show_404();
 			die();
@@ -240,7 +240,7 @@ class Form_inputan_dua extends CI_Controller
 
 		if ($id_user != '' || $login != '') {
 
-			$row = $this->Form_inputan_model->get_by_id($id);
+			$row = $this->Form_inputan_dua_model->get_by_id($id);
 
 			if ($row) {
 				$data = array(
