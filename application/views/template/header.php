@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Member | <?php  echo $page_title;?></title>
+    <title>Member | <?php echo $page_title; ?></title>
     <!-- Favicon-->
-    <link rel="icon" href="<?php echo base_url();?>assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url(); ?>assets/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -14,45 +14,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap Core Css -->
-    <link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="<?php echo base_url();?>assets/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/plugins/node-waves/waves.css" rel="stylesheet" />
     <!-- Bootstrap Select Css -->
-    <link href="<?php echo base_url();?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="<?php echo base_url();?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 
-      <link href="<?php echo base_url();?>assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
-    <link href=".<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href=".<?php echo base_url(); ?>assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <!-- Bootstrap DatePicker Css -->
-    <link href="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="<?php echo base_url();?>assets/css/themes/all-themes.css" rel="stylesheet" />
-<script type="text/javascript" src="<?php echo base_url('assets/dropzone.min.js') ?>"></script>
-<link href="<?php echo base_url();?>assets/plugins/dropzone/dropzone.css" rel="stylesheet">
- <link href="<?php echo base_url();?>assets/plugins/light-gallery/css/lightgallery.css" rel="stylesheet">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <script type="text/javascript" src="<?php echo base_url();?>assets/js/scriptajax.js"></script>
- <style type="text/css">
-<!--
-.style1 {	font-size: 16px;
-	font-weight: bold;
-	font-family: "Courier New", Courier, monospace;
-}
--->
- </style>
+    <link href="<?php echo base_url(); ?>assets/css/themes/all-themes.css" rel="stylesheet" />
+    <script type="text/javascript" src="<?php echo base_url('assets/dropzone.min.js') ?>"></script>
+    <link href="<?php echo base_url(); ?>assets/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/plugins/light-gallery/css/lightgallery.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/scriptajax.js"></script>
+    <style type="text/css">
+        .style1 {
+            font-size: 16px;
+            font-weight: bold;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $('.callout').fadeOut();
+        });
+    </script>
+
 </head>
 
 <body class="theme-red">
-  
+
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -70,21 +76,22 @@
         </div>
     </div>
     <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars --><!-- #END# Overlay For Sidebars -->
+    <!-- Overlay For Sidebars -->
+    <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
-<nav class="navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div align="center"><a href="javascript:void(0);" class="bars"></a> <a  href="<?php echo base_url();?>admin" class="navbar-brand style1" style="width: 90%; height: 90% ">AMPERA B-KIPM</a></div>
-    </div>
-    <div class="left-menu" aria-labelledby="alertsDropdown">
-      <ul class="nav navbar-nav navbar-right pull-right">
-        <!-- Call Search -->
-        <!-- #END# Call Search -->
-        <!-- Notifications -->
-        <!--  <li class="dropdown">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div align="center"><a href="javascript:void(0);" class="bars"></a> <a href="<?php echo base_url(); ?>admin" class="navbar-brand style1" style="width: 90%; height: 90% ">AMPERA B-KIPM</a></div>
+            </div>
+            <div class="left-menu" aria-labelledby="alertsDropdown">
+                <ul class="nav navbar-nav navbar-right pull-right">
+                    <!-- Call Search -->
+                    <!-- #END# Call Search -->
+                    <!-- Notifications -->
+                    <!--  <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
                             <span class="label-count">7</span>
@@ -192,15 +199,15 @@
                             </li>
                         </ul>
                     </li> -->
-        <!-- #END# Notifications -->
-        <!-- Tasks 
-                    <li class="pull-right">  <a alt="Logout" href="<?php echo site_url('login/process_logout');?>"><i class="material-icons">power_settings_new</i></a></li> -->
-        <!-- #END# Tasks -->
-        <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">settings_applications</i></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+                    <!-- #END# Notifications -->
+                    <!-- Tasks 
+                    <li class="pull-right">  <a alt="Logout" href="<?php echo site_url('login/process_logout'); ?>"><i class="material-icons">power_settings_new</i></a></li> -->
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">settings_applications</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
