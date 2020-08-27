@@ -302,6 +302,8 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                     $('#tot_bayar').html('<div class="alert alert-info">Sedang Meload data ..</div>');
 
                     $("#quantity").keyup(function() {
+                        $('#tot_bayar').html('<div class="alert alert-info">Sedang Meload data ..</div>');
+ 
                         nilai = parseInt($('#nilai').val());
                         jhitungadmin1 = $('#jhitungadmin1').val();
                         jhitungadmin2 = $('#jhitungadmin2').val();
@@ -335,9 +337,14 @@ $role_ck = ($role == 0) ? 'readonly' : '';
 
                     //hitung admin 2  
                     $('#jsubkategori_id1').hide();
-                    $('#jhitungadmin2').hide();
+                    $('#jhitungadmin3').hide();
+                    $('#jenis_id2').val();
+
                     $('#jenis_id1').on('change', function() {
                         $('#jsubkategori_id1').show();
+                        $('#jenis_id2').show();
+                        $('#jhitungadmin3').show();
+
                     });
                     $('#jsubkategori_id1').on('change', function() {
                         $('#jhitungadmin2').show();
@@ -345,8 +352,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                     });
 
 
-                    //hitung admin 3
-                    $('#jsubkategori_id1').hide();
+                    //hitung admin 3 
                     $('#jpemadmin').hide();
                     $('#jenis_id3').on('change', function() {
                         $('#jpemadmin').show();
