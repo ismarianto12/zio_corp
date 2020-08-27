@@ -3,7 +3,7 @@
 <?php
 $role = $this->session->id_role;
 $role_ck = ($role == 0) ? 'readonly' : '';
-?>  
+?>
 <section class="content">
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -15,7 +15,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                     <div class='row'>
                         <div class='col-sm-12'>
                             <?= $this->session->flashdata('message') ?>
-                            <div class=\'white-box\'>
+                            <div class='white-box'>
                                 <center>
                                     <h3 class='box-title m-b-0'>Form Estimasi Iuran </h3>
                                     <sub><b>Nomor Form : <?= $no_form ?></b></sub>
@@ -31,7 +31,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                     $data = $this->db->get_where('jenis', ['category !=' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
                                                     <?php
                                                     }
@@ -44,11 +44,11 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             <div class='col-md-9'>
                                                 <select class="form-control" name="subkategori_id" id="subkategori_id" required>
                                                     <option value="">--Pilih Sub -- </option>
-                                                   <?php
+                                                    <?php
                                                     $sdata = $this->db->get_where('subkategori', ['category !=' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
                                                     <?php
                                                     }
@@ -57,10 +57,10 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" id="jhitungadmin1">
                                             <label for="varchar" class='control-label col-md-3'><b>B. Jasa Hitung admin 1<?php echo form_error('jhitungadmin1') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="2000" <?= $role_ck ?>/>
+                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="2000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -72,7 +72,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                     $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
                                                     <?php
                                                     }
@@ -88,7 +88,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                     $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
                                                     <?php
                                                     }
@@ -100,7 +100,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin2') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?>/>
+                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -108,12 +108,12 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             <label for="int" class='control-label col-md-3'><b>Jenis <?php echo form_error('jenis_id') ?></b></label>
                                             <div class='col-md-9'>
                                                 <select class="form-control" name="jenis_id" id="jenis_id2" required>
-                                                 <option val=""> - Silahkan Pilih Sub Kategori - </option>
-                                                   <?php
+                                                    <option val=""> - Silahkan Pilih Sub Kategori - </option>
+                                                    <?php
                                                     $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
                                                     <?php
                                                     }
@@ -125,12 +125,12 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             <label for="int" class='control-label col-md-3'><b>Subkategori <?php echo form_error('subkategori_id') ?></b></label>
                                             <div class='col-md-9'>
                                                 <select class="form-control" name="jsubkategori_id" id="jsubkategori_id" required>
-                                                   <option val=""> - Silahkan Pilih Sub Kategori - </option>
-                                                   <?php
+                                                    <option val=""> - Silahkan Pilih Sub Kategori - </option>
+                                                    <?php
                                                     $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
                                                     <?php
                                                     }
@@ -155,7 +155,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                     $data = $this->db->get_where('jenis', ['category' => '1']);
                                                     foreach ($data->result_array() as $dat) {
                                                         $selected = ($dat['id'] == $jenis_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $dat['id'] ?>" <?= $selected  ?>><?= $dat['jenisnm'] ?></option>
                                                     <?php
                                                     }
@@ -171,7 +171,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                     $sdata = $this->db->get_where('subkategori', ['category' => '1']);
                                                     foreach ($sdata->result_array() as $ldat) {
                                                         $selected = ($ldat['id'] == $subkategori_id) ? 'selected' : '';
-                                                        ?>
+                                                    ?>
                                                         <option value="<?= $ldat['id'] ?>" <?= $selected  ?>><?= ucfirst($ldat['kategorinm']) ?></option>
                                                     <?php
                                                     }
@@ -179,14 +179,14 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                                 </select>
                                             </div>
                                         </div>
- 
+
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>E. Jasa Pembayaran admin <?php echo form_error('quantity') ?></b></label>
                                             <div class='col-md-9'>
                                                 <input type="text" class="form-control" name="jpemadmin" id="jpemadmin" placeholder="Jasa Pembayaran admin" value="5000" <?= $role_ck ?> />
                                                 <small> * ) Nilai Yang di tetapkan 50.000, entri data jika ingin mengubah</small>
                                             </div>
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>Tot Bayar<?php echo form_error('tot_bayar') ?></b></label>
@@ -209,16 +209,15 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                             </div>
                                         </div>
 
-                                     <?php if($this->session->id_role != ''){  ?>  
-                                        <div class="form-group">
-                                            <label for="int" class='control-label col-md-3'><b>User Id<?php echo form_error('user_id') ?></b></label>
-                                            <div class='col-md-9'>
-                                                <?= $this->session->userdata('username') ?>
+                                        <?php if ($this->session->id_role != '') {  ?>
+                                            <div class="form-group">
+                                                <label for="int" class='control-label col-md-3'><b>User Id<?php echo form_error('user_id') ?></b></label>
+                                                <div class='col-md-9'>
+                                                    <?= $this->session->userdata('username') ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                     <?php }else{
-
-                                     } ?>
+                                        <?php } else {
+                                        } ?>
 
                                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
                                         <input type="hidden" name="user_id" value="<?php echo $this->session->id_user; ?>" />
@@ -317,5 +316,48 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                             $("#tot_bayar").val(total);
                         }
                     });
+                });
+            </script>
+
+            <script>
+                $(function() {
+                    //hitung admin 1   
+                    $('#subkategori_id').hide();
+                    $('#jhitungadmin1').hide();
+                    $('#type_id').on('change', function() {
+                        $('#subkategori_id').show();
+
+                    });
+                    $('#subkategori_id').on('change', function() {
+                        $('#jhitungadmin1').show();
+
+                    });
+
+                    //hitung admin 2  
+                    $('#jsubkategori_id1').hide();
+                    $('#jhitungadmin2').hide();
+                    $('#jenis_id1').on('change', function() {
+                        $('#jsubkategori_id1').show();
+                    });
+                    $('#jsubkategori_id1').on('change', function() {
+                        $('#jhitungadmin2').show();
+
+                    });
+
+
+                    //hitung admin 3
+                    $('#jsubkategori_id1').hide();
+                    $('#jpemadmin').hide();
+                    $('#jenis_id3').on('change', function() {
+                        $('#jpemadmin').show();
+                    });
+                    // $('#jsubkategori_id1').on('change', function() {
+                    //     $('#jhitungadmin2').show();
+
+                    // });
+                    // //hitung admin 4
+                    // $('#subkategori_id').on('change', function() {
+
+                    // });
                 });
             </script>
