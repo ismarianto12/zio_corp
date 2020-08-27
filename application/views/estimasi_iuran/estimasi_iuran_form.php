@@ -60,7 +60,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                         <div class="form-group" id="jhitungadmin1">
                                             <label for="varchar" class='control-label col-md-3'><b>B. Jasa Hitung admin 1<?php echo form_error('jhitungadmin1') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="2000" <?= $role_ck ?> />
+                                                <input type="text" class="form-control" name="jhitungadmin1" id="jhitungadmin1" placeholder="Jasa Hitung admin 1" value="2.000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -100,7 +100,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>C. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin2') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?> />
+                                                <input type="text" class="form-control" name="jhitungadmin2" id="jhitungadmin2" placeholder="Jasa Hitung admin" value="2.000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -143,7 +143,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                                         <div class="form-group">
                                             <label for="varchar" class='control-label col-md-3'><b>D. Jasa Hitung admin 1 <?php echo form_error('jhitungadmin3') ?></b></label>
                                             <div class='col-md-9'>
-                                                <input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="2000" <?= $role_ck ?> />
+                                                <input type="text" class="form-control" name="jhitungadmin3" id="jhitungadmin3" placeholder="Jasa Hitung admin" value="2.000" <?= $role_ck ?> />
                                             </div>
                                         </div>
 
@@ -303,11 +303,11 @@ $role_ck = ($role == 0) ? 'readonly' : '';
 
                     $("#quantity").keyup(function() {
                         $('#tot_bayar').html('<div class="alert alert-info">Sedang Meload data ..</div>');
- 
+
                         nilai = parseInt($('#nilai').val());
-                        jhitungadmin1 = $('#jhitungadmin1').val();
-                        jhitungadmin2 = $('#jhitungadmin2').val();
-                        jhitungadmin3 = $('#jhitungadmin3').val();
+                        jhitungadmin1 = 2000;
+                        jhitungadmin2 = 2000;
+                        jhitungadmin3 = 2000;
                         jpemadmin = $('#jpemadmin').val();
 
                         if (nilai == '') {
@@ -346,6 +346,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                         $('#jhitungadmin3').show();
 
                     });
+                    $('#jhitungadmin2').hide();
                     $('#jsubkategori_id1').on('change', function() {
                         $('#jhitungadmin2').show();
 
