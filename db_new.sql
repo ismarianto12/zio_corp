@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2020 at 10:50 PM
+-- Generation Time: Aug 30, 2020 at 12:26 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -144,7 +144,7 @@ CREATE TABLE `estimasi_iuran` (
   `jhitungadmin3` varchar(30) NOT NULL,
   `jpemadmin` varchar(30) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
-  `update_at` datetime NOT NULL,
+  `update_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `creaate_at` datetime NOT NULL,
   `no_formulir` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -157,7 +157,10 @@ INSERT INTO `estimasi_iuran` (`id`, `nomor_form`, `jenis_id`, `subkategori_id`, 
 (4, '', 1, 3, '5000', '3', '620000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 01:11:00', '2020-07-29 01:11:00', ''),
 (5, '', 1, 3, '5000', '121', '1210000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 11:36:42', '2020-07-29 11:36:42', ''),
 (6, '', 3, 3, '5000', '12', '665000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 12:18:16', '2020-07-29 12:18:16', ''),
-(7, '', 1, 3, '5000', '2', '615000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 12:19:41', '2020-07-29 12:19:41', '');
+(7, '', 1, 3, '5000', '2', '615000', '200000', '200000', '200000', '5000', NULL, '2020-07-29 12:19:41', '2020-07-29 12:19:41', ''),
+(8, '', 1, 2, '40000', '23', '931000', '2000', '2000', '2000', '5000', NULL, '2020-08-18 01:49:41', '2020-08-18 01:49:41', ''),
+(9, '', 5, 3, '5000', '1', '16000', '2000', '2000', '2000', '5000', NULL, '2020-08-30 17:17:07', '2020-08-27 22:05:38', ''),
+(10, '', 3, 2, '40000', '2', '91000', '2000', '2000', '2000', '5000', NULL, '2020-08-30 17:17:03', '2020-08-30 16:58:49', '');
 
 -- --------------------------------------------------------
 
@@ -246,7 +249,10 @@ CREATE TABLE `form_inputan` (
 INSERT INTO `form_inputan` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
 (6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
 (7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
-(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
+(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38'),
+(9, 'sda', 'aasda', 'asdad@asda.com', 'asda', 'asd', 'assd', 'assd', '0000-00-00', 'asd', 'asd', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', NULL, '2020-08-17 18:03:31', '2020-08-17 18:03:31'),
+(10, 'adsad', 'asdasd@asdasd.com', 'adasdas', 'adasdsad', 'asdad', 'asdadasd', 'asdsada', '2020-08-21', 'asd', 'asdad', '132131', '12', '1312', 'sad', 'sdad', 'aasdad', 'asdad', 'asdad', 'asdad', 'asdsad', 'asdad', 'asdad', 'asda', 'ads', 'asdad', 'asdad', 'asdad', 'asdad', 'adsad', 'asdad', 'sdad', 'asdad', 'asdaas', 'adssada', 'asdad', 'asdad', NULL, '2020-08-17 18:24:19', '2020-08-17 18:24:19'),
+(11, 'adsad', 'asdasd@asdasd.com', 'adasdas', 'adasdsad', 'asdad', 'asdadasd', 'asdsada', '2020-08-21', 'asd', 'asdad', '132131', '12', '1312', 'sad', 'sdad', 'aasdad', 'asdad', 'asdad', 'asdad', 'asdsad', 'asdad', 'asdad', 'asda', 'ads', 'asdad', 'asdad', 'asdad', 'asdad', 'adsad', 'asdad', 'sdad', 'asdad', 'asdaas', 'adssada', 'asdad', 'asdad', NULL, '2020-08-17 18:24:19', '2020-08-17 18:24:19');
 
 -- --------------------------------------------------------
 
@@ -302,9 +308,10 @@ CREATE TABLE `form_inputan_dua` (
 --
 
 INSERT INTO `form_inputan_dua` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
-(6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
 (7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
-(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
+(9, 'sada', 'asdasd@asda.com', 'asdad', 'asd', 'asdaasda', 'asdada', 'asdad', '0000-00-00', 'asdad', 'adasd', 'asdsad', '121', 'asdad', 'adsa', 'asdad', 'adsad', 'adsa', 'asda', 'asd', 'asdada', 'asd', 'ds', 'asdasda', 'asdad', 'adsa', 'adasd', 'ad', 'adsaad', 'aasda', 'asda', 'asdad', 'asdad', 'adsa', 'asda', 'asda', 'ads', NULL, '2020-08-17 18:12:25', '2020-08-17 18:12:25'),
+(10, 'asda', 'asda@sada.com', 'asd', '123123a', 'asda', 'asd', 'asda', '2020-08-07', 'asdad', 'adssad', 'adssa', 'asda', 'asd', 'ads', 'asd', 'asdad', 'assd', 'assddfg', 'fgfdgg', 'sfsdf', 'sdfsf', 'sfdsf', 'sdfsdf', 'sdfsdfsd', 'sdfsdf', 'sdfsdf', 'sdfs', 'sdfdsf', 'sfsdf', 'sdfsdf', 'dsfdsfsf', 'sdfds', 'sdf', 'sdfs', 'sdfsdf', 'sdfs', NULL, '2020-08-17 18:33:49', '2020-08-17 18:33:49'),
+(11, 'asda', 'asda@sada.com', 'asd', '123123a', 'asda', 'asd', 'asda', '2020-08-07', 'asdad', 'adssad', 'adssa', 'asda', 'asd', 'ads', 'asd', 'asdad', 'assd', 'assddfg', 'fgfdgg', 'sfsdf', 'sdfsf', 'sfdsf', 'sdfsdf', 'sdfsdfsd', 'sdfsdf', 'sdfsdf', 'sdfs', 'sdfdsf', 'sfsdf', 'sdfsdf', 'dsfdsfsf', 'sdfds', 'sdf', 'sdfs', 'sdfsdf', 'sdfs', NULL, '2020-08-17 18:35:17', '2020-08-17 18:35:17');
 
 -- --------------------------------------------------------
 
@@ -362,7 +369,8 @@ CREATE TABLE `form_inputan_tiga` (
 INSERT INTO `form_inputan_tiga` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
 (6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
 (7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
-(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38');
+(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38'),
+(9, 'asda', 'asd@asdsa.com', 'asda', 'q23223', 'aads', '123123', 'asdas', '2020-08-21', 'adsa', 'adssad', 'adsa', 'asdaa', 'adssa', 'asda', 'adsad', 'adadssa', 'adasd', 'asda', 'asdad', 'asdsaadssa', 'dasdasd', 'adssad', 'asd', 'adssadas', 'dasdasd', 'asdsadasdas', 'asdad', 'asasdasd', 'asd', 'asdad', 'asdsad', 'adasda', 'sasdsa', 'adasd', 'asdad', 'adssad', NULL, '2020-08-17 18:36:18', '2020-08-17 18:36:18');
 
 -- --------------------------------------------------------
 
@@ -678,7 +686,8 @@ CREATE TABLE `reg_kelengkapan` (
 --
 
 INSERT INTO `reg_kelengkapan` (`id`, `no_registrasi`, `form_pendaftar`, `ktp`, `npwp`, `pas_foto`, `data_orang_tua`, `data_ujian`, `data_ijazah`, `data_nilai`, `data_sertifikat`, `create_at`, `upatated_at`, `created_by`) VALUES
-(1, 'A2312312', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, NULL);
+(1, 'A2312312', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, NULL),
+(2, '1231321', NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -990,25 +999,25 @@ ALTER TABLE `detail_news`
 -- AUTO_INCREMENT for table `estimasi_iuran`
 --
 ALTER TABLE `estimasi_iuran`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `form_inputan`
 --
 ALTER TABLE `form_inputan`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `form_inputan_dua`
 --
 ALTER TABLE `form_inputan_dua`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `form_inputan_tiga`
 --
 ALTER TABLE `form_inputan_tiga`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `galeri_gambar`
@@ -1062,7 +1071,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `reg_kelengkapan`
 --
 ALTER TABLE `reg_kelengkapan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sponsor`

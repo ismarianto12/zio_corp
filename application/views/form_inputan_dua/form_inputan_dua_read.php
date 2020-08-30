@@ -1,10 +1,9 @@
 <?php
-if ($get == 'yes') { ?> 
-<link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+if ($get == 'yes') { ?>
+	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 <?php
 }
-?> 
-
+?>
 <section class="content">
 	<div class="">
 		<div class="row clearfix">
@@ -13,9 +12,8 @@ if ($get == 'yes') { ?>
 					<div class="header">
 						<h2><i class="material-icons col-light-blue">mms</i><?= ucfirst(strtolower($page_title)) ?></h2>
 					</div>
-					<center>
 					<div class="body" style="overflow: auto;">
-						<div class='table-responsive col-lg-6'>
+						<div class='table-responsive'>
 
 							<table class="table">
 								<tr>
@@ -48,7 +46,7 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Tanggal</td>
-									<td><?php echo ($tanggal); ?></td>
+									<td><?php echo $tanggal; ?></td>
 								</tr>
 								<tr>
 									<td>Transportasi Angkutan</td>
@@ -60,7 +58,7 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Nilai</td>
-									<td><?php echo $nilai; ?></td>
+									<td><?php echo number_format($nilai,0,0,'.'); ?></td>
 								</tr>
 								<tr>
 									<td>Jenis1</td>
@@ -112,7 +110,7 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Jumlah3</td>
-									<td><?php echo $jumlah3; ?></td>
+									<td><?php echo number_format($jumlah3, 0, 0, '.');; ?></td>
 								</tr>
 								<tr>
 									<td>Satuan3</td>
@@ -120,11 +118,11 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Keterangan3</td>
-									<td><?php echo $keterangan3; ?></td>
+									<td><?php echo $keterangan3 ?></td>
 								</tr>
 								<tr>
 									<td>Jenis4</td>
-									<td><?php echo $jenis4; ?></td>
+									<td><?php echo $jenis4 ?></td>
 								</tr>
 								<tr>
 									<td>Ukuran4</td>
@@ -132,7 +130,7 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Jumlah4</td>
-									<td><?php echo $jumlah4; ?></td>
+									<td><?php echo number_format($jumlah4, 0, 0, '.'); ?></td>
 								</tr>
 								<tr>
 									<td>Satuan4</td>
@@ -140,11 +138,11 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Keterangan4</td>
-									<td><?php echo $keterangan4; ?></td>
+									<td><?php echo $keterangan4 ?></td>
 								</tr>
 								<tr>
 									<td>Jenis5</td>
-									<td><?php echo $jenis5; ?></td>
+									<td><?php echo $jenis5 ?></td>
 								</tr>
 								<tr>
 									<td>Ukuran5</td>
@@ -152,7 +150,7 @@ if ($get == 'yes') { ?>
 								</tr>
 								<tr>
 									<td>Jumlah5</td>
-									<td><?php echo $jumlah5; ?></td>
+									<td><?php echo number_format($jumlah5, 0, 0, '.'); ?></td>
 								</tr>
 								<tr>
 									<td>Satuan5</td>
@@ -161,15 +159,15 @@ if ($get == 'yes') { ?>
 								<tr>
 									<td>Keterangan5</td>
 									<td><?php echo $keterangan5; ?></td>
-								</tr>  
+								</tr>
+
 								<tr>
-									<td><a href="<?php echo site_url('form_inputan_dua/detail/'.$id.'/?print=yes') ?>" class="btn btn-default"><i class='fa fa-print'></i>Print</a></td>
+									<td><a href="<?php echo site_url('form_inputan/detail/' . $id . '/?print=yes') ?>" class="btn btn-default"><i class='fa fa-print'></i>Print</a></td>
 									<td><a href="<?php echo site_url('form_inputan') ?>" class="btn btn-default"><i class='fa fa-home'></i>Back To Home</a></td>
 								</tr>
 							</table>
 						</div>
 					</div>
-					</center>
 				</div>
 			</div>
 		</div>

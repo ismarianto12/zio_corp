@@ -4,7 +4,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>Data list form inputan</h2>
+                        <h2>Data inputan Form Satu</h2>
                     </div>
                     <div class="body" style="overflow: auto;"> 
                     <form action="<?php echo $action; ?>" method="post" class='form-horizontal form-bordered'>

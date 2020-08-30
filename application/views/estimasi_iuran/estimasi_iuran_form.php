@@ -211,7 +211,7 @@ $role_ck = ($role == 0) ? 'readonly' : '';
 
                                         <?php if ($this->session->id_role != '') {  ?>
                                             <div class="form-group">
-                                                <label for="int" class='control-label col-md-3'><b>User Id<?php echo form_error('user_id') ?></b></label>
+                                                <label for="int" class='control-label col-md-3'><b>User Entri data <?php echo form_error('user_id') ?></b></label>
                                                 <div class='col-md-9'>
                                                     <?= $this->session->userdata('username') ?>
                                                 </div>
