@@ -15,19 +15,19 @@ class Estimasi_iuran extends CI_Controller
         parent::__construct();
         $this->load->model('Estimasi_iuran_model');
         $this->load->library('form_validation');
-        $this->load->library(['datatables','Properti']); 
+        $this->load->library(['datatables', 'Properti']);
     }
 
     public function index()
-    { 
+    {
         $id_user    = $this->session->id_user;
-        $role       = $this->session->role; 
+        $role       = $this->session->role;
 
         if ($id_user != '' ||  $role == 0) {
 
-        $x['page_title'] = 'Data : Estimasi iuran';
-        $this->template->load('template', 'estimasi_iuran/estimasi_iuran_list', $x);
-        }else{
+            $x['page_title'] = 'Data : Estimasi iuran';
+            $this->template->load('template', 'estimasi_iuran/estimasi_iuran_list', $x);
+        } else {
             show_404();
             exit();
         }
@@ -70,13 +70,13 @@ class Estimasi_iuran extends CI_Controller
     public function tambah()
     {
         $lib      = $this->properti->getForm();
-        $no_form  = 'FORM/'.date('Y-m-d').'/'.$lib;
-         $data = array(
+        $no_form  = 'FORM/' . date('Y-m-d') . '/' . $lib;
+        $data = array(
             'page_title' => 'Tambah Estimasi iuran',
             'button' => 'Create',
             'action' => site_url('estimasi_iuran/tambah_data'),
             'id' => set_value('id'),
-            'no_form'=>$no_form,
+            'no_form' => $no_form,
             'jenis_id' => set_value('jenis_id'),
             'subkategori_id' => set_value('subkategori_id'),
             'nilai' => set_value('nilai'),
@@ -113,25 +113,24 @@ class Estimasi_iuran extends CI_Controller
                 'user_id' => $this->session->user_id,
                 'update_at' => date('Y-m-d H:i:s'),
                 'creaate_at' => date('Y-m-d H:i:s'),
-            ); 
+            );
             $this->Estimasi_iuran_model->insert($data);
             $id_user = $this->session->id_user;
             $role = $this->session->id_role;
-            
-            if ($id_user != '' AND  $role == 0) {
+
+            if ($id_user != '' and  $role == 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Tambahkan.</div>');
                 $redirect = redirect(site_url('estimasi_iuran'));
-            }elseif($role != 0){  
-                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array(); 
-                $id_estimasi = $data['id']; 
+            } elseif ($role != 0) {
+                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array();
+                $id_estimasi = $data['id'];
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Simpan.</div>');
-                $redirect    = redirect(site_url('estimasi_iuran/detail/'.$id_estimasi));
-           
-            }else {
-                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array(); 
-                $id_estimasi = $data['id']; 
+                $redirect    = redirect(site_url('estimasi_iuran/detail/' . $id_estimasi));
+            } else {
+                $data        = $this->db->select_max('id')->from('estimasi_iuran')->get()->row_array();
+                $id_estimasi = $data['id'];
                 $this->session->set_flashdata('message', '<div class="alert alert-success fade-in"><i class="fa fa-check"></i>Data Berhasil Di Simpan.</div>');
-                $redirect    = redirect(site_url('estimasi_iuran/detail/'.$id_estimasi));
+                $redirect    = redirect(site_url('estimasi_iuran/detail/' . $id_estimasi));
             }
         }
     }
@@ -140,10 +139,13 @@ class Estimasi_iuran extends CI_Controller
     {
         $row = $this->Estimasi_iuran_model->get_by_id($id);
 
+        $lib      = $this->properti->getForm();
+        $no_form  = 'FORM/' . date('Y-m-d') . '/' . $lib;
         if ($row) {
             $data = array(
                 'page_title' => 'Data Estimasi Iuran',
                 'button' => 'Update',
+                'no_form' => $no_form,
                 'action' => site_url('estimasi_iuran/edit_data'),
                 'id' => set_value('id', $row->id),
                 'jenis_id' => set_value('jenis_id', $row->jenis_id),

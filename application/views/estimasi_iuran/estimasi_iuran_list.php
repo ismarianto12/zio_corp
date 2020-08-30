@@ -80,25 +80,52 @@
                                                      "data": "jenisnm"
                                                  }, {
                                                      "data": "kategorinm"
-                                                 }, {
-                                                     "data": "estimasi_nilai"
-                                                 }, {
-                                                     "data": "jhitungadmin1"
-                                                 }, {
-                                                     "data": "jhitungadmin2"
-                                                 }, {
-                                                     "data": "jhitungadmin3"
-                                                 }, {
+                                                 },
+                                                 {
+                                                     "data": "estimasi_nilai",
+                                                     render: function(data, type, row) {
+                                                         var format = $.fn.dataTable.render.number(",", ".", 0, "Rp.").display;
+                                                         return format(row.estimasi_nilai);
+                                                     }
+
+                                                 },
+                                                 {
+                                                     "data": "jhitungadmin1",
+                                                     render: function(data, type, row) {
+                                                         var rpjl = $.fn.dataTable.render.number(",", ".", 0, "Rp.").display;
+                                                         return rpjl(row.jhitungadmin1);
+                                                     }
+
+                                                 },
+                                                 {
+                                                     "data": "jhitungadmin2",
+                                                     render: function(data, type, row) {
+                                                         var trl = $.fn.dataTable.render.number(",", ".", 0, "Rp.").display;
+                                                         return trl(row.jhitungadmin2);
+                                                     }
+
+                                                 },
+                                                 {
+                                                     "data": "jhitungadmin3",
+                                                     render: function(data, type, row) {
+                                                         var jtungadmin = $.fn.dataTable.render.number(",", ".", 0, "Rp.").display;
+                                                         return jtungadmin(row.jhitungadmin3);
+                                                     }
+
+                                                 },
+                                                 {
                                                      "data": "jpemadmin"
                                                  },
                                                  {
                                                      "data": "quantity"
-                                                 }, {
+                                                 },
+                                                 {
                                                      "data": "tot_bayar"
                                                  },
                                                  {
                                                      "data": "update_at"
-                                                 }, {
+                                                 },
+                                                 {
                                                      "data": "creaate_at"
                                                  },
                                                  {

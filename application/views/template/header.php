@@ -51,7 +51,7 @@
 
     <script>
         $(function() {
-            $('.callout').fadeOut();
+            $('.callout-callout').fadeOut(100);
         });
     </script>
 

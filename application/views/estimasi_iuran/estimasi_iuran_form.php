@@ -313,9 +313,10 @@ $role_ck = ($role == 0) ? 'readonly' : '';
                         if (nilai == '') {
                             swal('error', 'silahkan entrikan nilai terlebih dahulu');
                         } else {
-                            total = (parseInt(this.value) * parseInt(nilai)) + parseInt(jhitungadmin1) + parseInt(jhitungadmin2) + parseInt(jhitungadmin3) + parseInt(jpemadmin);
-                            $('#tot_bayar').attr('readonly', true);
-                            $("#tot_bayar").val(total);
+                            var total = (parseInt(this.value) * parseInt(nilai)) + parseInt(jhitungadmin1) + parseInt(jhitungadmin2) + parseInt(jhitungadmin3) + parseInt(jpemadmin);
+                            //$('#tot_bayar').attr('readonly', true);
+                            var n = total.toFixed(2);
+                            $("#tot_bayar").val(n);
                         }
                     });
                 });
