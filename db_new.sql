@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2020 at 12:26 PM
+-- Generation Time: Aug 30, 2020 at 05:50 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -238,21 +238,21 @@ CREATE TABLE `form_inputan` (
   `satuan5` varchar(50) NOT NULL,
   `keterangan5` varchar(50) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form_inputan`
 --
 
-INSERT INTO `form_inputan` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
-(6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:38', '2020-07-21 11:41:38'),
-(7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
-(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:42:38', '2020-07-21 11:42:38'),
-(9, 'sda', 'aasda', 'asdad@asda.com', 'asda', 'asd', 'assd', 'assd', '0000-00-00', 'asd', 'asd', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', NULL, '2020-08-17 18:03:31', '2020-08-17 18:03:31'),
-(10, 'adsad', 'asdasd@asdasd.com', 'adasdas', 'adasdsad', 'asdad', 'asdadasd', 'asdsada', '2020-08-21', 'asd', 'asdad', '132131', '12', '1312', 'sad', 'sdad', 'aasdad', 'asdad', 'asdad', 'asdad', 'asdsad', 'asdad', 'asdad', 'asda', 'ads', 'asdad', 'asdad', 'asdad', 'asdad', 'adsad', 'asdad', 'sdad', 'asdad', 'asdaas', 'adssada', 'asdad', 'asdad', NULL, '2020-08-17 18:24:19', '2020-08-17 18:24:19'),
-(11, 'adsad', 'asdasd@asdasd.com', 'adasdas', 'adasdsad', 'asdad', 'asdadasd', 'asdsada', '2020-08-21', 'asd', 'asdad', '132131', '12', '1312', 'sad', 'sdad', 'aasdad', 'asdad', 'asdad', 'asdad', 'asdsad', 'asdad', 'asdad', 'asda', 'ads', 'asdad', 'asdad', 'asdad', 'asdad', 'adsad', 'asdad', 'sdad', 'asdad', 'asdaas', 'adssada', 'asdad', 'asdad', NULL, '2020-08-17 18:24:19', '2020-08-17 18:24:19');
+INSERT INTO `form_inputan` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_update`) VALUES
+(6, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 18:41:38', '2020-08-30 22:48:26'),
+(7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 18:41:54', '2020-08-30 22:48:26'),
+(8, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 18:42:38', '2020-08-30 22:48:26'),
+(9, 'sda', 'aasda', 'asdad@asda.com', 'asda', 'asd', 'assd', 'assd', '0000-00-00', 'asd', 'asd', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', '12', NULL, '2020-08-18 01:03:31', '2020-08-30 22:48:26'),
+(10, 'adsad', 'asdasd@asdasd.com', 'adasdas', 'adasdsad', 'asdad', 'asdadasd', 'asdsada', '2020-08-21', 'asd', 'asdad', '132131', '12', '1312', 'sad', 'sdad', 'aasdad', 'asdad', 'asdad', 'asdad', 'asdsad', 'asdad', 'asdad', 'asda', 'ads', 'asdad', 'asdad', 'asdad', 'asdad', 'adsad', 'asdad', 'sdad', 'asdad', 'asdaas', 'adssada', 'asdad', 'asdad', NULL, '2020-08-18 01:24:19', '2020-08-30 22:48:26'),
+(12, 'Contoh data nama', 'Contohdata@aacs.com', 'kad', 'asdad', 'adsd', 'dinas', 'dd', '2020-08-13', 'angkatan umum', 'pada anggatan umum', '1', '12', '12', '1212', '1231', '1231', '1231', '12312', '1321', '1231', '13213123', '122313', '12313132', '22313132', '13221', '1231', '11313', '1231', '1313', '123', '2312', '131', '1231', '1232', 'pcs', 'asd', NULL, '2020-08-30 22:23:21', '2020-08-30 22:48:26');
 
 -- --------------------------------------------------------
 
@@ -300,18 +300,8 @@ CREATE TABLE `form_inputan_dua` (
   `keterangan5` varchar(50) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `form_inputan_dua`
---
-
-INSERT INTO `form_inputan_dua` (`id`, `nama`, `email`, `alamat`, `nomor_pendaftaran`, `area`, `penerima`, `alamatpen`, `tanggal`, `transportasi_angkutan`, `keterangan`, `nilai`, `jenis1`, `ukuran1`, `jumlah1`, `satuan1`, `keterangan1`, `jenis2`, `ukuran2`, `jumlah2`, `satuan2`, `keterangan2`, `jenis3`, `ukuran3`, `jumlah3`, `satuan3`, `keterangan3`, `jenis4`, `ukuran4`, `jumlah4`, `satuan4`, `keterangan4`, `jenis5`, `ukuran5`, `jumlah5`, `satuan5`, `keterangan5`, `user_id`, `date_created`, `date_updated`) VALUES
-(7, 'aad', 'sad@asdac.com', 'alama', 'asd', 'd', 'asd', 'asd', '0000-00-00', 'adssad', 'asdsasd', 'asdasd', 'asdasd', 'asdad', 'assdaad', 'asdad', 'asdasd', 'asssdadjjo', 'asda', 'adsasd', 'assdasd', 'asdasd', 'asdad', 'asdasd', 'asdasd', 'assdasd', 'asdasd', 'asdasd', 'asdasd', 'sadad', 'sasdasd', 'sadasd', 'sasdas', 'asdsad', 'assdad', 'assdasd', 'asdsad', NULL, '2020-07-21 11:41:54', '2020-07-21 11:41:54'),
-(9, 'sada', 'asdasd@asda.com', 'asdad', 'asd', 'asdaasda', 'asdada', 'asdad', '0000-00-00', 'asdad', 'adasd', 'asdsad', '121', 'asdad', 'adsa', 'asdad', 'adsad', 'adsa', 'asda', 'asd', 'asdada', 'asd', 'ds', 'asdasda', 'asdad', 'adsa', 'adasd', 'ad', 'adsaad', 'aasda', 'asda', 'asdad', 'asdad', 'adsa', 'asda', 'asda', 'ads', NULL, '2020-08-17 18:12:25', '2020-08-17 18:12:25'),
-(10, 'asda', 'asda@sada.com', 'asd', '123123a', 'asda', 'asd', 'asda', '2020-08-07', 'asdad', 'adssad', 'adssa', 'asda', 'asd', 'ads', 'asd', 'asdad', 'assd', 'assddfg', 'fgfdgg', 'sfsdf', 'sdfsf', 'sfdsf', 'sdfsdf', 'sdfsdfsd', 'sdfsdf', 'sdfsdf', 'sdfs', 'sdfdsf', 'sfsdf', 'sdfsdf', 'dsfdsfsf', 'sdfds', 'sdf', 'sdfs', 'sdfsdf', 'sdfs', NULL, '2020-08-17 18:33:49', '2020-08-17 18:33:49'),
-(11, 'asda', 'asda@sada.com', 'asd', '123123a', 'asda', 'asd', 'asda', '2020-08-07', 'asdad', 'adssad', 'adssa', 'asda', 'asd', 'ads', 'asd', 'asdad', 'assd', 'assddfg', 'fgfdgg', 'sfsdf', 'sdfsf', 'sfdsf', 'sdfsdf', 'sdfsdfsd', 'sdfsdf', 'sdfsdf', 'sdfs', 'sdfdsf', 'sfsdf', 'sdfsdf', 'dsfdsfsf', 'sdfds', 'sdf', 'sdfs', 'sdfsdf', 'sdfs', NULL, '2020-08-17 18:35:17', '2020-08-17 18:35:17');
 
 -- --------------------------------------------------------
 
@@ -359,7 +349,7 @@ CREATE TABLE `form_inputan_tiga` (
   `keterangan5` varchar(50) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -798,9 +788,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `jabatan
 (74, 'kanatagea178', 'bb5625735e08b725efb819202b62aa5e', 'Kanata Age', 'kanata@age.com', NULL, '081384832332', 3, NULL, '4563128bf1f1b8625ad1759b6dcb8dcf.jpg', NULL, NULL, 'Banyuasin', 'Kecamatan Banyuasin', 'Kelurahan Banyuasin', '97f46231aa6360abae1a782e8f4fb241.png'),
 (75, 'kuhaku134', 'bb5625735e08b725efb819202b62aa5e', 'Kuhaku', NULL, NULL, '081312345678', 3, NULL, 'b7905d04a6d4ada3cb163baca5dada15.jpg', NULL, NULL, 'Banyuasin', 'Kecamatan Banyuasin', 'Desa Banyuasin', ''),
 (76, 'maman45', '0192023a7bbd73250516f069df18b500', 'maman', NULL, NULL, '08123456789', 3, NULL, 'f9e8677b251a981cba2abf7ceb1a1152.jpg', NULL, NULL, 'Palembang', 'ulu', 'ulu', ''),
-(0, 'ewqe195', 'e10adc3949ba59abbe56e057f20f883e', 'ewqe', NULL, NULL, '4343', 3, NULL, '78745efe367b4d28e66ea7180e67d633.jpg', NULL, NULL, 'Palembang', 'sa', 'ds', ''),
-(0, 'sueb166', 'e10adc3949ba59abbe56e057f20f883e', 'sueb', NULL, NULL, '123456789', 3, NULL, NULL, NULL, NULL, '', '', '', ''),
-(0, 'omasmi153', 'e10adc3949ba59abbe56e057f20f883e', 'om isma', NULL, NULL, '654321', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(77, 'ewqe195', 'e10adc3949ba59abbe56e057f20f883e', 'ewqe', NULL, NULL, '4343', 3, NULL, '78745efe367b4d28e66ea7180e67d633.jpg', NULL, NULL, 'Palembang', 'sa', 'ds', ''),
+(78, 'sueb166', 'e10adc3949ba59abbe56e057f20f883e', 'sueb', NULL, NULL, '123456789', 3, NULL, NULL, NULL, NULL, '', '', '', ''),
+(79, 'omasmi153', 'e10adc3949ba59abbe56e057f20f883e', 'om isma', NULL, NULL, '654321', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1005,13 +995,13 @@ ALTER TABLE `estimasi_iuran`
 -- AUTO_INCREMENT for table `form_inputan`
 --
 ALTER TABLE `form_inputan`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `form_inputan_dua`
 --
 ALTER TABLE `form_inputan_dua`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `form_inputan_tiga`
@@ -1084,6 +1074,12 @@ ALTER TABLE `sponsor`
 --
 ALTER TABLE `subkategori`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
